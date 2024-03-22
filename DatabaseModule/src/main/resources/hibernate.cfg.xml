@@ -15,5 +15,6 @@
         <property name="hbm2ddl.auto">update</property>
 
         <mapping class="priv.stud.database.entities.ropes.Rope" />
+        <mapping class="priv.stud.database.entities.ropes.CommonRope" />
     </session-factory>
 </hibernate-configuration>
