@@ -16,6 +16,7 @@
 
         <mapping class="priv.stud.database.entities.ropes.Rope" />
         <mapping class="priv.stud.database.entities.ropes.CommonRope" />
+        <mapping class="priv.stud.database.entities.ropes.TwinRope" />
         <mapping class="priv.stud.database.entities.warehouse.Workshop" />
         <mapping class="priv.stud.database.entities.warehouse.WorkshopLine" />
         <mapping class="priv.stud.database.entities.warehouse.Worker" />

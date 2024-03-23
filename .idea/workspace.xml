@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="Check db connection">
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Worker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/WorkshopLine.java" afterDir="false" />
+    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="Part of classess in entities">
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/TwinRope.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/orders/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/orders/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/BasicRopeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/BasicRopeInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/CommonRope.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/CommonRope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/stores/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/stores/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Workshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Workshop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711018470028</updated>
       <workItem from="1711018471115" duration="11440000" />
-      <workItem from="1711165319160" duration="4864000" />
+      <workItem from="1711165319160" duration="7617000" />
     </task>
     <task id="LOCAL-00001" summary="Add packets and repository">
       <option name="closed" value="true" />
@@ -149,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711024442009</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Part of classess in entities">
+      <option name="closed" value="true" />
+      <created>1711170450497</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711170450497</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +184,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add packets and repository" />
     <MESSAGE value="Check db connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check db connection" />
+    <MESSAGE value="Part of classess in entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Part of classess in entities" />
   </component>
 </project>

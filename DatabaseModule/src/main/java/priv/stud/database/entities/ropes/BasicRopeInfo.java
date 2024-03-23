@@ -1,10 +1,10 @@
 package priv.stud.database.entities.ropes;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
 @Getter
 public class BasicRopeInfo {
     private double price;
