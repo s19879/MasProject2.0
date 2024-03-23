@@ -1,5 +1,10 @@
 module DatabaseModule {
     exports priv.stud.database.services;
+    exports priv.stud.database.entities;
+    exports priv.stud.database.entities.warehouse;
+    exports priv.stud.database.entities.stores;
+    exports priv.stud.database.entities.ropes;
+    exports priv.stud.database.entities.orders;
     requires org.hibernate.orm.core;
     requires java.validation;
     requires sqlite.dialect;

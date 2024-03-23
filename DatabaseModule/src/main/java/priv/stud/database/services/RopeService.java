@@ -1,8 +1,6 @@
 package priv.stud.database.services;
 
-import priv.stud.database.entities.ropes.BasicRopeInfo;
-import priv.stud.database.entities.ropes.CommonRope;
-import priv.stud.database.entities.ropes.Rope;
+import priv.stud.database.entities.ropes.*;
 import priv.stud.database.repositories.RopeRepository;
 
 public class RopeService {
@@ -11,15 +9,15 @@ public class RopeService {
         ropeRepository = new RopeRepository();
     }
 
-    public boolean createRope(){
-        //Rope rope = new Rope();
-        CommonRope rope = new CommonRope();
-        rope.setName("Dragon");
-
-        rope.setRopeKind("blabkala");
-        rope.setBasicRopeInfo(new BasicRopeInfo());
+    public boolean createNewCommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
+        CommonRope rope = new CommonRope(name, elongation,  diameeter, true ,basicRopeInfo, "SINGLE");
         return ropeRepository.save(rope);
 
+    }
+
+    public  boolean createNewTwinRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
+        TwinRope rope = new TwinRope(name, elongation,diameeter, true, basicRopeInfo, true);
+        return ropeRepository.save(rope);
     }
 
 

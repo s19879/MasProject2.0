@@ -14,6 +14,15 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class CommonRope extends Rope{
 
+
     private String ropeKind;
+    CommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo, String ropeKind){
+        super(name, elongation, diameeter, true, basicRopeInfo);
+    }
+
+    public CommonRope(String name, int elongation, double diameter, boolean isActive, BasicRopeInfo basicRopeInfo, String ropeKind) {
+        super(name, elongation, diameter, isActive, basicRopeInfo);
+        this.ropeKind = ropeKind;
+    }
 }
 
