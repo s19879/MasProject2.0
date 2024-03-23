@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="Check db connection">
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/BasicRopeInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/CommonRope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/CommonRopeKind.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/RopeType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Worker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/WorkshopLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/orders/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/orders/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/CommonRope.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/CommonRope.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/stores/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/stores/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Workshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Workshop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +33,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -60,7 +68,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -123,6 +131,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711018470028</updated>
       <workItem from="1711018471115" duration="11440000" />
+      <workItem from="1711165319160" duration="4864000" />
     </task>
     <task id="LOCAL-00001" summary="Add packets and repository">
       <option name="closed" value="true" />
@@ -145,6 +154,29 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add packets and repository" />

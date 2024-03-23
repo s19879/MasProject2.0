@@ -1,28 +1,30 @@
-package priv.stud.database.entities.stores;
+package priv.stud.database.entities.warehouse;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import priv.stud.database.entities.Address;
-import priv.stud.database.entities.orders.Order;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.sql.Date;
 
 @NoArgsConstructor
-@Setter
 @Getter
-@Entity(name = "STORE")
-public class Store {
+@Setter
+@Entity(name = "WORKER")
+public class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String name;
+    private String lastName;
+    private String pesel;
+    private Date birthDate;
+
     @Embedded
     private Address address;
 
-
-    @OneToMany(mappedBy = "store")
-    private Set<Order> orders;
-
+    @ManyToOne
+    private Workshop workshop;
 }

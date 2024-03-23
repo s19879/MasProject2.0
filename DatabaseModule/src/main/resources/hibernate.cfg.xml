@@ -16,5 +16,11 @@
 
         <mapping class="priv.stud.database.entities.ropes.Rope" />
         <mapping class="priv.stud.database.entities.ropes.CommonRope" />
+        <mapping class="priv.stud.database.entities.warehouse.Workshop" />
+        <mapping class="priv.stud.database.entities.warehouse.WorkshopLine" />
+        <mapping class="priv.stud.database.entities.warehouse.Worker" />
+        <mapping class="priv.stud.database.entities.stores.Store" />
+        <mapping class="priv.stud.database.entities.orders.Order" />
+
     </session-factory>
 </hibernate-configuration>

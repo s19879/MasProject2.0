@@ -7,6 +7,7 @@ module DatabaseModule {
     requires static lombok;
     requires java.persistence;
 
+    opens priv.stud.database.entities to org.hibernate.orm.core;
     opens priv.stud.database.entities.ropes to org.hibernate.orm.core;
     opens priv.stud.database.entities.orders to org.hibernate.orm.core;
     opens priv.stud.database.entities.warehouse to org.hibernate.orm.core;

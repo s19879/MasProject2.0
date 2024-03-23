@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
+import priv.stud.database.entities.warehouse.WorkshopLine;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -34,4 +36,7 @@ public class Rope{
 
     @Embedded
     private BasicRopeInfo basicRopeInfo;
+
+    @OneToMany(mappedBy = "workshop")
+    private Set<WorkshopLine> workshopLines;
 }
