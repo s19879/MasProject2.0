@@ -16,7 +16,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name = "typeed") //W przypadku single table
 @Entity(name = "ROPE")
-public class Rope{
+public abstract class Rope{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
