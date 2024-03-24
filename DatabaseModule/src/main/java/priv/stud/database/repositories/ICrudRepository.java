@@ -10,5 +10,6 @@ public interface ICrudRepository<T, ID>{
     boolean deleteById(ID id);
     boolean deleteByFieldName(String fieldName, String name);
     boolean delete(T entity);
-    boolean existsById(ID id);
+    boolean existById(ID id);
+    boolean existByName(String fieldName, String name);
 }

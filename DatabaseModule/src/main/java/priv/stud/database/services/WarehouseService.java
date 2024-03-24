@@ -30,7 +30,7 @@ public class WarehouseService implements IWarehouseService{
 
     @Override
     public Warehouse getWarehouseByName(String name) {
-        return repository.findByField("name", name);
+        return repository.findByFieldName("name", name);
     }
 
     @Override

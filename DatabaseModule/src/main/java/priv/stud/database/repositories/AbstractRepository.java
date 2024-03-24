@@ -81,7 +81,6 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
     }
 
     public boolean deleteByFieldName(String fieldName, String name){
-
         Transaction transaction = null;
         try{
             transaction = session.beginTransaction();
@@ -114,7 +113,7 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
     }
 
     @Override
-    public boolean existsById(ID id) {
+    public boolean existById(ID id) {
         boolean exists = false;
         Transaction transaction = null;
         try{
@@ -126,5 +125,10 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
                 transaction.rollback();
         }
         return exists;
+    }
+
+    @Override
+    public boolean existByName(String fieldName, String name){
+        return findListByField(fieldName, name).get(0) != null;
     }
 }
