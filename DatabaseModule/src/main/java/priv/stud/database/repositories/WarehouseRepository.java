@@ -3,7 +3,7 @@ package priv.stud.database.repositories;
 import priv.stud.database.entities.orders.Order;
 import priv.stud.database.entities.ropes.Rope;
 import priv.stud.database.entities.warehouse.Warehouse;
-import priv.stud.database.entities.warehouse.WarehouseLine;
+import priv.stud.database.entities.warehouse.WarehouseRope;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ public class WarehouseRepository extends AbstractRepository<Warehouse, Long>
     }
 
     @Override
-    public List<WarehouseLine> getAllRopesInWorkshop() {
+    public List<WarehouseRope> getAllRopesInWorkshop() {
         return null;
     }
 
     @Override
-    public WarehouseLine getRopeInWorkshop(Rope rope) {
+    public WarehouseRope getRopeInWorkshop(Rope rope) {
         return null;
     }
 

@@ -2,7 +2,7 @@ package priv.stud.database.entities.ropes;
 
 import lombok.*;
 import org.hibernate.annotations.Type;
-import priv.stud.database.entities.warehouse.WarehouseLine;
+import priv.stud.database.entities.warehouse.WarehouseRope;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -44,5 +44,5 @@ public abstract class Rope{
     private BasicRopeInfo basicRopeInfo;
 
     @OneToMany(mappedBy = "warehouse")
-    private Set<WarehouseLine> warehouseLines;
+    private Set<WarehouseRope> warehouseRopes;
 }

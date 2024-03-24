@@ -4,6 +4,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import priv.stud.database.utlis.DatabaseSession;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
+
 public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID> {
     protected final Session session = DatabaseSession.getSession();
 
@@ -28,7 +33,19 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
         return entity;
     }
 
+    @Override
+    public List<T> findListByField(String fieldName, String value){
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
+        Root<T> root = criteriaQuery.from(clazz);
+        criteriaQuery.select(root).where(criteriaBuilder.equal(root.get(fieldName), value));
+        return session.createQuery(criteriaQuery).getResultList();
+    }
 
+    @Override
+    public T findByField(String fieldName, String value){
+        return findListByField(fieldName, value).get(0);
+    }
 
     @Override
     public T save(T saveObject) {

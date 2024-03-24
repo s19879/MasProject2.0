@@ -10,8 +10,8 @@ import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @Data
-@Entity(name = "WORKSHOP_LINE")
-public class WarehouseLine {
+@Entity(name = "WAREHOUSE_Rope")
+public class WarehouseRope {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,14 +23,14 @@ public class WarehouseLine {
     @ManyToOne
     private Rope rope;
 
-    @NotNull(message = "Kupa")
+    @NotNull(message = "warehouse is null")
     @ManyToOne
     private Warehouse warehouse;
 
     protected void setId(Long id){
         this.id = id;
     }
-    public WarehouseLine(int amount, @NonNull  Rope rope, @NonNull Warehouse warehouse) {
+    public WarehouseRope(int amount, @NonNull  Rope rope, @NonNull Warehouse warehouse) {
         this.amount = amount;
         this.rope = rope;
         this.warehouse = warehouse;

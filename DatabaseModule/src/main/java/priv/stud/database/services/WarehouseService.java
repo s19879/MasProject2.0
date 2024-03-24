@@ -3,8 +3,12 @@ package priv.stud.database.services;
 import priv.stud.database.entities.Address;
 import priv.stud.database.entities.ropes.Rope;
 import priv.stud.database.entities.warehouse.Warehouse;
-import priv.stud.database.entities.warehouse.WarehouseLine;
+import priv.stud.database.entities.warehouse.WarehouseRope;
 import priv.stud.database.repositories.WarehouseRepository;
+import priv.stud.database.repositories.WarehouseRopeRepository;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class WarehouseService implements IWarehouseService{
     private final WarehouseRepository repository;
@@ -20,17 +24,35 @@ public class WarehouseService implements IWarehouseService{
     }
 
     @Override
-    public void addRope(int amount, Rope rope) {
-
+    public Warehouse getWarehouseById(int id) {
+        return repository.findById((long) id);
     }
 
     @Override
-    public boolean checkAvailabilityOfRope(Rope rope) {
+    public Warehouse getWarehouseByName(String name) {
+        return repository.findByField("name", name);
+    }
+
+    @Override
+    public void addRopeToStock(int amount, Rope rope, Warehouse warehouse) {
+        WarehouseRopeService wrs = new WarehouseRopeService();
+        wrs.saveWarehouseRope(amount, rope, warehouse);
+    }
+
+    @Override
+    public void updateAmountOfRopeOnStock(int amount, WarehouseRope rope) {
+        WarehouseRopeService wrs = new WarehouseRopeService();
+        rope.setAmount(amount);
+        wrs.updateAmount(rope);
+    }
+
+    @Override
+    public boolean checkAvailabilityOfRope(Rope rope, Warehouse warehouse) {
         return false;
     }
 
     @Override
-    public void updateRopeAmount(WarehouseLine warehouseLine) {
+    public void updateRopeAmount(WarehouseRope warehouseRope) {
 
     }
 }

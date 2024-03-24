@@ -5,12 +5,12 @@ import priv.stud.database.entities.Address;
 import priv.stud.database.entities.orders.Order;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @RequiredArgsConstructor
 @Getter
+@Setter
 @Entity(name = "WAREHOUSE")
 public class Warehouse {
     @Id
@@ -25,7 +25,7 @@ public class Warehouse {
     private Address address;
 
     @OneToMany(mappedBy = "warehouse")
-    private Set<WarehouseLine> warehouseLines;
+    private Set<WarehouseRope> warehouseRopes;
 
     @OneToMany(mappedBy = "warehouse")
     private Set<Order> orders;

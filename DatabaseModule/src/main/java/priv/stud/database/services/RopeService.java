@@ -3,7 +3,7 @@ package priv.stud.database.services;
 import priv.stud.database.entities.ropes.*;
 import priv.stud.database.repositories.RopeRepository;
 
-public class RopeService {
+public class RopeService implements IRopeService{
     private final RopeRepository ropeRepository;
     public RopeService(){
         ropeRepository = new RopeRepository();
@@ -18,5 +18,15 @@ public class RopeService {
     public  TwinRope createNewTwinRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
         TwinRope rope = new TwinRope(name, elongation,diameeter, true, basicRopeInfo, true);
         return (TwinRope) ropeRepository.save(rope);
+    }
+
+    @Override
+    public Rope getRopeByName(String name) {
+        return ropeRepository.findByField("name", name);
+    }
+
+    @Override
+    public Rope getRopeById(int id) {
+        return ropeRepository.findById((long) id);
     }
 }
