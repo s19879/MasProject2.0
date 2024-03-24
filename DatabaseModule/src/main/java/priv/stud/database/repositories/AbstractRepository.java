@@ -31,17 +31,17 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
 
 
     @Override
-    public boolean save(T saveObject) {
+    public T save(T saveObject) {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
             session.saveOrUpdate(saveObject);
             transaction.commit();
-            return true;
+            return saveObject;
         } catch (Exception e) {
             if (transaction != null)
                 transaction.rollback();
-            return false;
+            return null;
         }
     }
 

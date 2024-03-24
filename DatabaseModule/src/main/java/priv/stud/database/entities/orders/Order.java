@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import priv.stud.database.entities.stores.Store;
-import priv.stud.database.entities.warehouse.Workshop;
+import priv.stud.database.entities.warehouse.Warehouse;
 
 import javax.persistence.*;
 
@@ -18,7 +18,7 @@ public class Order {
     private long id;
 
     @ManyToOne
-    private Workshop workshop;
+    private Warehouse warehouse;
 
     @ManyToOne
     private Store store;

@@ -2,11 +2,10 @@ package priv.stud.database.entities.ropes;
 
 import lombok.*;
 import org.hibernate.annotations.Type;
-import priv.stud.database.entities.warehouse.WorkshopLine;
+import priv.stud.database.entities.warehouse.WarehouseLine;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Set;
 
 @Getter
@@ -44,6 +43,6 @@ public abstract class Rope{
     @Embedded
     private BasicRopeInfo basicRopeInfo;
 
-    @OneToMany(mappedBy = "workshop")
-    private Set<WorkshopLine> workshopLines;
+    @OneToMany(mappedBy = "warehouse")
+    private Set<WarehouseLine> warehouseLines;
 }

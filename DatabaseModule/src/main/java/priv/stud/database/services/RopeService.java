@@ -9,16 +9,14 @@ public class RopeService {
         ropeRepository = new RopeRepository();
     }
 
-    public boolean createNewCommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
+    public CommonRope createNewCommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
         CommonRope rope = new CommonRope(name, elongation,  diameeter, true ,basicRopeInfo, "SINGLE");
-        return ropeRepository.save(rope);
+        return (CommonRope) ropeRepository.save(rope);
 
     }
 
-    public  boolean createNewTwinRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
+    public  TwinRope createNewTwinRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
         TwinRope rope = new TwinRope(name, elongation,diameeter, true, basicRopeInfo, true);
-        return ropeRepository.save(rope);
+        return (TwinRope) ropeRepository.save(rope);
     }
-
-
 }

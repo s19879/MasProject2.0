@@ -26,5 +26,5 @@ public class Worker {
     private Address address;
 
     @ManyToOne
-    private Workshop workshop;
+    private Warehouse warehouse;
 }
