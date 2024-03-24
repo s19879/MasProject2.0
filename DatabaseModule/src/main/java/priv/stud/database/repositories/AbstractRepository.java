@@ -43,7 +43,7 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
     }
 
     @Override
-    public T findByField(String fieldName, String value){
+    public T findByFieldName(String fieldName, String value){
         return findListByField(fieldName, value).get(0);
     }
 
@@ -68,6 +68,24 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
         try{
             transaction = session.beginTransaction();
             T entity = session.get(clazz, (Long) id);
+            if(entity != null){
+                session.delete(entity);
+                transaction.commit();
+                return true;
+            }
+        } catch (Exception e){
+            if(transaction != null)
+                transaction.rollback();
+        }
+        return false;
+    }
+
+    public boolean deleteByFieldName(String fieldName, String name){
+
+        Transaction transaction = null;
+        try{
+            transaction = session.beginTransaction();
+            T entity = findByFieldName(fieldName, name);
             if(entity != null){
                 session.delete(entity);
                 transaction.commit();

@@ -35,7 +35,11 @@ public class Main {
         }*/
         WarehouseService service = new WarehouseService();
         Warehouse w = service.getWarehouseById(1);
+        //Warehouse w1 = service.getWarehouseByName("")
         Set<WarehouseRope> r = w.getWarehouseRopes();
+        RopeService ser = new RopeService();
+        Rope rope = ser.getRopeByName("Dragon");
+        System.out.println(rope.getId());
 
 
 

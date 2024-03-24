@@ -22,7 +22,7 @@ public class RopeService implements IRopeService{
 
     @Override
     public Rope getRopeByName(String name) {
-        return ropeRepository.findByField("name", name);
+        return ropeRepository.findByFieldName("name", name);
     }
 
     @Override
