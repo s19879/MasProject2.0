@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="extend crud repository">
+    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="added existByName and changed &quot;exists&quot; to &quot;exist&quot; in methods names to be more clarify">
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/IWarehouseRopeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/AbstractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/ICrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/ICrudRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/WarehouseRope.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/WarehouseRope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/IWarehouseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/IWarehouseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WarehouseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WarehouseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WarehouseRopeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WarehouseRopeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/IWarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/IWarehouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +28,8 @@
       <list>
         <option value="module-info" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -130,7 +138,8 @@
       <workItem from="1711211753068" duration="340000" />
       <workItem from="1711254476822" duration="23736000" />
       <workItem from="1711281212992" duration="141000" />
-      <workItem from="1711281371981" duration="6134000" />
+      <workItem from="1711281371981" duration="7813000" />
+      <workItem from="1711294244462" duration="4328000" />
     </task>
     <task id="LOCAL-00001" summary="Add packets and repository">
       <option name="closed" value="true" />
@@ -196,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711291697512</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added existByName and changed &quot;exists&quot; to &quot;exist&quot; in methods names to be more clarify">
+      <option name="closed" value="true" />
+      <created>1711292722178</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711292722178</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,9 +251,19 @@
     <MESSAGE value="first method in warehouseService" />
     <MESSAGE value="much further..." />
     <MESSAGE value="extend crud repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="extend crud repository" />
+    <MESSAGE value="added existByName and changed &quot;exists&quot; to &quot;exist&quot; in methods names to be more clarify" />
+    <option name="LAST_COMMIT_MESSAGE" value="added existByName and changed &quot;exists&quot; to &quot;exist&quot; in methods names to be more clarify" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/priv/stud/Main.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="priv.stud.database.entities.warehouse.WarehouseRope" memberName="amount" />

@@ -7,24 +7,9 @@ import priv.stud.database.entities.warehouse.WarehouseRope;
 
 import java.util.List;
 
-public class WarehouseRepository extends AbstractRepository<Warehouse, Long>
-    implements IWarehouseRepository{
+public class WarehouseRepository extends AbstractRepository<Warehouse, Long> {
     public WarehouseRepository() {
         super(Warehouse.class);
     }
 
-    @Override
-    public List<WarehouseRope> getAllRopesInWorkshop() {
-        return null;
-    }
-
-    @Override
-    public WarehouseRope getRopeInWorkshop(Rope rope) {
-        return null;
-    }
-
-    @Override
-    public List<Order> getAllOrdersInMonth(int month, int year) {
-        return null;
-    }
 }

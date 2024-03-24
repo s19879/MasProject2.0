@@ -12,6 +12,5 @@ public interface IWarehouseService {
 
     void updateAmountOfRopeOnStock(int amount, WarehouseRope rope);
     boolean checkAvailabilityOfRope(Rope rope, Warehouse warehouse);
-    void updateRopeAmount(WarehouseRope warehouseRope);
 
 }

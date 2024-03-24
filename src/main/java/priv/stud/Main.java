@@ -33,15 +33,32 @@ public class Main {
         for(WarehouseRope r : warehouse.getWarehouseRopes()){
             System.out.println(r.getAmount());
         }*/
-        WarehouseService service = new WarehouseService();
+        /*WarehouseService service = new WarehouseService();
         Warehouse w = service.getWarehouseById(1);
         //Warehouse w1 = service.getWarehouseByName("")
         Set<WarehouseRope> r = w.getWarehouseRopes();
         RopeService ser = new RopeService();
         Rope rope = ser.getRopeByName("Dragon");
         System.out.println(rope.getId());
+*/
 
+        //Create entities
+        RopeService rs = new RopeService();
+        BasicRopeInfo bri = new BasicRopeInfo(499.99, 60, 1, 1, "ZYGZAK", 1, false);
+        Rope rope = rs.createNewCommonRope("Dragon", 1, 0.1, bri);
 
+        WarehouseService ws = new WarehouseService();
+        Warehouse warehouse = ws.addWarehouse("Pierwszy", "Wrocław", "Przestrzenna", "12", "02-122");
+        ws.addRopeToStock(20, rope, warehouse);
+
+        //Read from entties
+        Warehouse warehouse1 = ws.getWarehouseByName("Pierwszy");
+        System.out.println(warehouse1.getAddress());
+
+        WarehouseRopeService wrs = new WarehouseRopeService();
+        WarehouseRope wr = wrs.getWarehouseRope(rope, warehouse);
+        ws.updateAmountOfRopeOnStock(12, wr);
+//        ws.updateAmountOfRopeOnStock(2, );
 
 
     }

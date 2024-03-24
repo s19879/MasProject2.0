@@ -51,8 +51,4 @@ public class WarehouseService implements IWarehouseService{
         return false;
     }
 
-    @Override
-    public void updateRopeAmount(WarehouseRope warehouseRope) {
-
-    }
 }

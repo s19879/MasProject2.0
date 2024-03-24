@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @Data
-@Entity(name = "WAREHOUSE_Rope")
+@Entity(name = "WAREHOUSE_ROPE")
 public class WarehouseRope {
 
     @Id

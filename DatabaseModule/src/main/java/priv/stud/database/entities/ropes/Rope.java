@@ -27,6 +27,7 @@ public abstract class Rope{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @NotNull
     private String name;
 

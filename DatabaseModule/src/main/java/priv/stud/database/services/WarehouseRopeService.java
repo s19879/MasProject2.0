@@ -12,13 +12,13 @@ import java.util.Set;
 public class WarehouseRopeService implements IWarehouseRopeService {
     private final WarehouseRopeRepository repository;
 
-    protected WarehouseRopeService(){
+    public WarehouseRopeService(){
         repository = new WarehouseRopeRepository();
     }
 
     @Override
     public WarehouseRope getWarehouseRope(@NonNull Rope rope, @NonNull Warehouse warehouse) {
-        return null;
+        return repository.getWarehouseRope(rope,warehouse);
     }
 
 

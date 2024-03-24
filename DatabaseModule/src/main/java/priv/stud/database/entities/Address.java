@@ -26,4 +26,14 @@ public class Address {
     @NonNull
     @Column(nullable = false)
     private String zipCode;
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", streetNumber='" + streetNumber + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
+    }
 }

@@ -8,7 +8,7 @@ import priv.stud.database.entities.warehouse.WarehouseRope;
 import java.util.List;
 
 public interface IWarehouseRepository extends ICrudRepository<Warehouse, Long> {
-    List<WarehouseRope> getAllRopesInWorkshop();
-    WarehouseRope getRopeInWorkshop(Rope rope);
-    List<Order> getAllOrdersInMonth(int month, int year);
+//    List<WarehouseRope> getAllRopesInWorkshop();
+//    WarehouseRope getRopeInWorkshop(Rope rope);
+//    List<Order> getAllOrdersInMonth(int month, int year);
 }
