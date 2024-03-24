@@ -22,11 +22,11 @@ public class WarehouseRopeService implements IWarehouseRopeService {
     }
 
 
-    protected void updateAmount(WarehouseRope warehouseRope) {
+    protected void updateAmount(@NonNull WarehouseRope warehouseRope) {
         repository.save(warehouseRope);
     }
 
-    protected void saveWarehouseRope(int amount, Rope rope, Warehouse warehouse){
+    protected void saveWarehouseRope(int amount, @NonNull Rope rope, @NonNull  Warehouse warehouse){
         Set<WarehouseRope> warehouseRopes = warehouse.getWarehouseRopes();
         WarehouseRope wr = new  WarehouseRope(amount, rope, warehouse);
 

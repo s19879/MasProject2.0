@@ -13,34 +13,6 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-       /* DummyService dummy = new DummyService();
-        System.out.println("Hello world!");
-        RopeService rs = new RopeService();
-        BasicRopeInfo bri = new BasicRopeInfo(499.99, 60, 1, 1, "ZYGZAK", 1, false);
-        //rs.createNewCommonRope("Dragon", 1, 0.1, bri);
-        Workshop workshop = new Workshop();
-        CommonRope commonRope = new CommonRope();
-        commonRope.setBasicRopeInfo(bri);
-        WorkshopLine line = new WorkshopLine(1, commonRope, workshop);
-
-*/
-        /*WarehouseService ws = new WarehouseService();
-        RopeService rs = new RopeService();
-        BasicRopeInfo bri = new BasicRopeInfo(499.99, 60, 1, 1, "ZYGZAK", 1, false);
-        Rope rope = rs.createNewCommonRope("Dragon", 1, 0.1, bri);
-        Warehouse warehouse = ws.addWarehouse("Pierwszy", "Wrocław", "Przestrzenna", "12", "02-122");
-        ws.addRopeToStock(20, rope, warehouse);
-        for(WarehouseRope r : warehouse.getWarehouseRopes()){
-            System.out.println(r.getAmount());
-        }*/
-        /*WarehouseService service = new WarehouseService();
-        Warehouse w = service.getWarehouseById(1);
-        //Warehouse w1 = service.getWarehouseByName("")
-        Set<WarehouseRope> r = w.getWarehouseRopes();
-        RopeService ser = new RopeService();
-        Rope rope = ser.getRopeByName("Dragon");
-        System.out.println(rope.getId());
-*/
 
         //Create entities
         RopeService rs = new RopeService();
