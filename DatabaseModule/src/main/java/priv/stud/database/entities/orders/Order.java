@@ -7,6 +7,7 @@ import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @NoArgsConstructor
 @Setter
@@ -22,5 +23,8 @@ public class Order {
 
     @ManyToOne
     private Store store;
+
+    @OneToMany(mappedBy = "order")
+    private Set<OrderedModel> orderedModels;
 
 }

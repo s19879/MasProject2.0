@@ -2,6 +2,7 @@ package priv.stud.database.entities.ropes;
 
 import lombok.*;
 import org.hibernate.annotations.Type;
+import priv.stud.database.entities.orders.OrderedModel;
 import priv.stud.database.entities.warehouse.WarehouseRope;
 
 import javax.persistence.*;
@@ -44,6 +45,9 @@ public abstract class Rope{
     @Embedded
     private BasicRopeInfo basicRopeInfo;
 
-    @OneToMany(mappedBy = "warehouse")
+    @OneToMany(mappedBy = "rope")
     private Set<WarehouseRope> warehouseRopes;
+
+    @OneToMany(mappedBy = "rope")
+    private Set<OrderedModel> orderedModels;
 }

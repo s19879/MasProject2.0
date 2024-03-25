@@ -22,6 +22,7 @@
         <mapping class="priv.stud.database.entities.warehouse.Worker" />
         <mapping class="priv.stud.database.entities.stores.Store" />
         <mapping class="priv.stud.database.entities.orders.Order" />
+        <mapping class="priv.stud.database.entities.orders.OrderedModel" />
 
     </session-factory>
 </hibernate-configuration>

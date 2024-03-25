@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="much much more..">
+    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="Add packets and repository">
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/orders/OrderedModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/IOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/orders/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/orders/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/ropes/Rope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
-        <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,23 +59,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.priv.stud.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/priv/stud" />
@@ -122,15 +127,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711018470028</updated>
-      <workItem from="1711018471115" duration="11440000" />
-      <workItem from="1711165319160" duration="7769000" />
-      <workItem from="1711174522016" duration="1798000" />
-      <workItem from="1711189457904" duration="6156000" />
-      <workItem from="1711211753068" duration="340000" />
-      <workItem from="1711254476822" duration="23736000" />
-      <workItem from="1711281212992" duration="141000" />
-      <workItem from="1711281371981" duration="7813000" />
-      <workItem from="1711294244462" duration="9754000" />
+      <workItem from="1711018471115" duration="4693000" />
     </task>
     <task id="LOCAL-00001" summary="Add packets and repository">
       <option name="closed" value="true" />
@@ -140,134 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711022873895</updated>
     </task>
-    <task id="LOCAL-00002" summary="Check db connection">
-      <option name="closed" value="true" />
-      <created>1711024442009</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1711024442009</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Part of classess in entities">
-      <option name="closed" value="true" />
-      <created>1711170450497</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1711170450497</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Part of classess in entities ciąg dalszy">
-      <option name="closed" value="true" />
-      <created>1711173146076</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1711173146076</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Save rope with inheritance">
-      <option name="closed" value="true" />
-      <created>1711197749617</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1711197749617</updated>
-    </task>
-    <task id="LOCAL-00006" summary="first method in warehouseService">
-      <option name="closed" value="true" />
-      <created>1711265476528</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1711265476528</updated>
-    </task>
-    <task id="LOCAL-00007" summary="much further...">
-      <option name="closed" value="true" />
-      <created>1711283152377</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1711283152377</updated>
-    </task>
-    <task id="LOCAL-00008" summary="extend crud repository">
-      <option name="closed" value="true" />
-      <created>1711291697512</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1711291697512</updated>
-    </task>
-    <task id="LOCAL-00009" summary="added existByName and changed &quot;exists&quot; to &quot;exist&quot; in methods names to be more clarify">
-      <option name="closed" value="true" />
-      <created>1711292722178</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1711292722178</updated>
-    </task>
-    <task id="LOCAL-00010" summary="much much more..">
-      <option name="closed" value="true" />
-      <created>1711298736572</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1711298736572</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="dev" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add packets and repository" />
-    <MESSAGE value="Check db connection" />
-    <MESSAGE value="Part of classess in entities" />
-    <MESSAGE value="Part of classess in entities ciąg dalszy" />
-    <MESSAGE value="Save rope with inheritance" />
-    <MESSAGE value="first method in warehouseService" />
-    <MESSAGE value="much further..." />
-    <MESSAGE value="extend crud repository" />
-    <MESSAGE value="added existByName and changed &quot;exists&quot; to &quot;exist&quot; in methods names to be more clarify" />
-    <MESSAGE value="much much more.." />
-    <option name="LAST_COMMIT_MESSAGE" value="much much more.." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/priv/stud/Main.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="priv.stud.database.entities.warehouse.WarehouseRope" memberName="amount" />
-      </pinned-members>
-    </pin-to-top-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="Add packets and repository" />
   </component>
 </project>
