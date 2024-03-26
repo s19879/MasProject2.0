@@ -3,6 +3,7 @@ package priv.stud.database.entities.orders;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 
@@ -17,6 +18,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Enumerated(EnumType.STRING)
+    @Type(type = "priv.stud.database.entities.orders.OrderStatus")
+    Enum<OrderStatus> status;
 
     @ManyToOne
     private Warehouse warehouse;
