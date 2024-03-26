@@ -21,6 +21,11 @@ public class RopeService implements IRopeService{
     }
 
     @Override
+    public boolean deleteRope(Rope rope) {
+        return false;
+    }
+
+    @Override
     public Rope getRopeByName(String name) {
         return ropeRepository.findByFieldName("name", name);
     }

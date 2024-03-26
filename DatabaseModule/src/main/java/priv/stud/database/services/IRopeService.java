@@ -9,6 +9,7 @@ public interface IRopeService {
 
     CommonRope createNewCommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo);
     TwinRope createNewTwinRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo);
+    boolean deleteRope(Rope rope);
     Rope getRopeByName(String name);
     Rope getRopeById(int id);
 }

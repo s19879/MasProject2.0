@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Type;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
+import priv.stud.database.services.IOrderService;
 
 import javax.persistence.*;
 import java.util.Set;

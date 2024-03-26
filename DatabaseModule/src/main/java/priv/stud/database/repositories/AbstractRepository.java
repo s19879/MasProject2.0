@@ -18,6 +18,16 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
         this.clazz = clazz;
     }
 
+
+    @Override
+    public List<T> findAll(){
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
+        Root<T> root = criteriaQuery.from(clazz);
+        CriteriaQuery<T> all = criteriaQuery.select(root);
+        return session.createQuery(all).getResultList();
+    }
+
     @Override
     public T findById(ID id) {
         T entity = null;

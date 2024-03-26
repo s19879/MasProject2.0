@@ -1,6 +1,7 @@
 package priv.stud.database.services;
 
 import priv.stud.database.entities.Address;
+import priv.stud.database.entities.orders.Order;
 import priv.stud.database.entities.ropes.Rope;
 import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
@@ -8,6 +9,7 @@ import priv.stud.database.repositories.WarehouseRepository;
 import priv.stud.database.repositories.WarehouseRopeRepository;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class WarehouseService implements IWarehouseService{
@@ -49,6 +51,11 @@ public class WarehouseService implements IWarehouseService{
     @Override
     public boolean checkAvailabilityOfRope(Rope rope, Warehouse warehouse) {
         return false;
+    }
+
+    @Override
+    public List<Order> getAllOrdersInMonth(Warehouse warehouse) {
+        return null;
     }
 
 }
