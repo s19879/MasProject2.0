@@ -4,9 +4,7 @@ import priv.stud.database.entities.ropes.BasicRopeInfo;
 import priv.stud.database.entities.ropes.Rope;
 import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
-import priv.stud.database.services.RopeService;
-import priv.stud.database.services.WarehouseRopeService;
-import priv.stud.database.services.WarehouseService;
+import priv.stud.database.services.*;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -21,6 +19,8 @@ public class Main {
 
         WarehouseService ws = new WarehouseService();
         Warehouse warehouse = ws.addWarehouse("Pierwszy", "Wrocław", "Przestrzenna", "12", "02-122");
+
+
         ws.addRopeToStock(20, rope, warehouse);
 
         //Read from entties
@@ -31,6 +31,12 @@ public class Main {
         WarehouseRope wr = wrs.getWarehouseRope(rope, warehouse);
         ws.updateAmountOfRopeOnStock(12, wr);
 //        ws.updateAmountOfRopeOnStock(2, );
+
+
+        StoreService storeService = new StoreService();
+        storeService.addStore("Wrocław", "Przestrzenna", "12", "02-122");
+
+        OrderService orderService = new OrderService();
 
 
     }

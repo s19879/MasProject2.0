@@ -16,15 +16,6 @@ import java.util.Set;
 //@DiscriminatorColumn(name = "typeed") //W przypadku single table
 @Entity(name = "ROPE")
 public abstract class Rope{
-
-    public Rope(String name, int elongation, double diameter, boolean isActive, BasicRopeInfo basicRopeInfo) {
-        this.name = name;
-        this.elongation = elongation;
-        this.diameter = diameter;
-        this.isActive = isActive;
-        this.basicRopeInfo = basicRopeInfo;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -50,4 +41,12 @@ public abstract class Rope{
 
     @OneToMany(mappedBy = "rope")
     private Set<OrderedModel> orderedModels;
+
+    public Rope(String name, int elongation, double diameter, boolean isActive, BasicRopeInfo basicRopeInfo) {
+        this.name = name;
+        this.elongation = elongation;
+        this.diameter = diameter;
+        this.isActive = isActive;
+        this.basicRopeInfo = basicRopeInfo;
+    }
 }

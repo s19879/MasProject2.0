@@ -3,6 +3,7 @@ package priv.stud.database.services;
 import priv.stud.database.entities.Address;
 import priv.stud.database.entities.orders.Order;
 import priv.stud.database.entities.ropes.Rope;
+import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
 import priv.stud.database.repositories.WarehouseRepository;
@@ -55,6 +56,11 @@ public class WarehouseService implements IWarehouseService{
 
     @Override
     public List<Order> getAllOrdersInMonth(Warehouse warehouse) {
+        return null;
+    }
+
+    @Override
+    public Order addOrder(Warehouse warehouse, Store store) {
         return null;
     }
 
