@@ -15,6 +15,8 @@ import java.util.Set;
 
 public class WarehouseService implements IWarehouseService{
     private final WarehouseRepository repository;
+    private final static OrderService orderService = new OrderService();
+    private final static StoreService storeService = new StoreService();
 
     public WarehouseService(){
         repository = new WarehouseRepository();
@@ -61,7 +63,11 @@ public class WarehouseService implements IWarehouseService{
 
     @Override
     public Order addOrder(Warehouse warehouse, Store store) {
-        return null;
+        Order order = orderService.addOrder(warehouse, store);
+        warehouse.getOrders().add(order);
+        repository.save(warehouse);
+        storeService.addOrderQualif(store, order);
+        return order;
     }
 
 }

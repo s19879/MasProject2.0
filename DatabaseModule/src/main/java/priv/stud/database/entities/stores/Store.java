@@ -27,7 +27,7 @@ public class Store {
 
     @OneToMany(mappedBy = "store")
     @MapKey(name = "id")
-    private Map<Long, Order> ordersQualif;
+    private Map<Long, Order> ordersQualif = new HashMap<>();
 
 
     public Store(@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode) {

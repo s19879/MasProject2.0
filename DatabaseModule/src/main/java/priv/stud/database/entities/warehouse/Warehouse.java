@@ -5,6 +5,7 @@ import priv.stud.database.entities.Address;
 import priv.stud.database.entities.orders.Order;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -25,13 +26,13 @@ public class Warehouse {
     private Address address;
 
     @OneToMany(mappedBy = "warehouse")
-    private Set<WarehouseRope> warehouseRopes;
+    private Set<WarehouseRope> warehouseRopes = new HashSet<>();
 
     @OneToMany(mappedBy = "warehouse")
-    private Set<Order> orders;
+    private Set<Order> orders = new HashSet<>();
 
     @OneToMany(mappedBy = "warehouse")
-    private Set<Worker> workers;
+    private Set<Worker> workers = new HashSet<>();
 
 
 }

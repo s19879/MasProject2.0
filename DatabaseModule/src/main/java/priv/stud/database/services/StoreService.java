@@ -7,6 +7,7 @@ import priv.stud.database.entities.stores.Store;
 import priv.stud.database.repositories.OrderRepository;
 import priv.stud.database.repositories.StoreRepository;
 
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -51,5 +52,9 @@ public class StoreService implements IStoreService{
     @Override
     public Order findOrderQualif(Store store, int id) {
         return null;
+    }
+
+    public List<Store> getAllStores(){
+        return storeRepository.findAll();
     }
 }

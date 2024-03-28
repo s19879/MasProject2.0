@@ -2,6 +2,7 @@ package priv.stud;
 
 import priv.stud.database.entities.ropes.BasicRopeInfo;
 import priv.stud.database.entities.ropes.Rope;
+import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
 import priv.stud.database.services.*;
@@ -34,9 +35,19 @@ public class Main {
 
 
         StoreService storeService = new StoreService();
-        storeService.addStore("Wrocław", "Przestrzenna", "12", "02-122");
+        Store store = storeService.addStore("Wrocław", "Przestrzenna", "12", "02-122");
 
-        OrderService orderService = new OrderService();
+        ws.addOrder(warehouse1, store);
+
+        for(Long key : store.getOrdersQualif().keySet()){
+            System.out.println(key + ":" + store.getOrdersQualif().get(key));
+        }
+
+        for(Store st : storeService.getAllStores()){
+            for(Long key : st.getOrdersQualif().keySet()){
+                System.out.println(key + ":" + st.getOrdersQualif().get(key));
+            }
+        }
 
 
     }
