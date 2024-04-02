@@ -6,43 +6,18 @@ import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.repositories.OrderRepository;
 
-public class OrderService implements IOrderService{
+import java.util.List;
 
-    private final OrderRepository repository;
+public interface OrderService {
+    Order addOrder(Warehouse warehouse, Store store);
+    boolean updateOrder(Order order);
+    boolean changeStatus(Order order, OrderStatus status);
+    boolean deleteOrder(Order order);
+    double calculateTotalPrice();
+    void changeStatus(OrderStatus orderStatus, Order order);
 
-    public OrderService(){
-        repository = new OrderRepository();
+    static List<Order> getOrderList(){
+        OrderRepository orderRepository = new OrderRepository();
+        return orderRepository.findAll();
     }
-
-    @Override
-    public Order addOrder(Warehouse warehouse, Store store) {
-        Order order = new Order(store, warehouse);
-        repository.save(order);
-        return order;
-    }
-
-    @Override
-    public boolean updateOrder(Order order) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteOrder(Order order) {
-        return false;
-    }
-
-
-
-
-    @Override
-    public double calculateTotalPrice() {
-        return 0;
-    }
-
-    @Override
-    public void changeStatus(Enum<OrderStatus> orderStatus, Order order) {
-            order.setStatus(orderStatus);
-    }
-
-
 }

@@ -1,37 +1,22 @@
 package priv.stud.database.services;
 
-import priv.stud.database.entities.ropes.*;
+import priv.stud.database.entities.ropes.BasicRopeInfo;
+import priv.stud.database.entities.ropes.CommonRope;
+import priv.stud.database.entities.ropes.Rope;
+import priv.stud.database.entities.ropes.TwinRope;
 import priv.stud.database.repositories.RopeRepository;
 
-public class RopeService implements IRopeService{
-    private final RopeRepository ropeRepository;
-    public RopeService(){
-        ropeRepository = new RopeRepository();
-    }
+import java.util.List;
 
-    public CommonRope createNewCommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
-        CommonRope rope = new CommonRope(name, elongation,  diameeter, true ,basicRopeInfo, "SINGLE");
-        return (CommonRope) ropeRepository.save(rope);
+public interface RopeService {
 
-    }
-
-    public  TwinRope createNewTwinRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo){
-        TwinRope rope = new TwinRope(name, elongation,diameeter, true, basicRopeInfo, true);
-        return (TwinRope) ropeRepository.save(rope);
-    }
-
-    @Override
-    public boolean deleteRope(Rope rope) {
-        return false;
-    }
-
-    @Override
-    public Rope getRopeByName(String name) {
-        return ropeRepository.findByFieldName("name", name);
-    }
-
-    @Override
-    public Rope getRopeById(int id) {
-        return ropeRepository.findById((long) id);
+    CommonRope createNewCommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo);
+    TwinRope createNewTwinRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo);
+    boolean deleteRope(Rope rope);
+    Rope getRopeByName(String name);
+    Rope getRopeById(int id);
+    static List<Rope> getAllRopes(){
+        RopeRepository repository = new RopeRepository();
+        return repository.findAll();
     }
 }

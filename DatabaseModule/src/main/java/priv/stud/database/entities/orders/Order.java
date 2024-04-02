@@ -4,12 +4,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
-import org.hibernate.annotations.Type;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
-import priv.stud.database.services.IOrderService;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,9 +21,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private Date date;
+
+    @Basic
     @Enumerated(EnumType.STRING)
-    @Type(type = "priv.stud.database.entities.orders.OrderStatus")
-    Enum<OrderStatus> status;
+    OrderStatus status;
 
     @ManyToOne
     private Warehouse warehouse;
@@ -36,6 +37,7 @@ public class Order {
     private Set<OrderedModel> orderedModels = new HashSet<>();
 
     public Order(@NonNull Store store, @NonNull Warehouse warehouse){
+        date = new Date();
         this.store = store;
         this.warehouse = warehouse;
         this.status = OrderStatus.OPEN;

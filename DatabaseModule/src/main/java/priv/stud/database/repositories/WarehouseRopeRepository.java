@@ -11,7 +11,6 @@ import javax.persistence.criteria.Root;
 
 public class WarehouseRopeRepository extends AbstractRepository<WarehouseRope, Long> {
     public WarehouseRopeRepository() {
-
         super(WarehouseRope.class);
     }
 
