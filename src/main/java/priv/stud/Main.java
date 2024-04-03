@@ -8,6 +8,8 @@ import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
 import priv.stud.database.services.*;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -48,5 +50,15 @@ public class Main {
         }
 
 
+        Store storeForSwing = storeService.addStore("Warszawa", "Żubra", "1", "01-066");
+        List<Rope> ropeList = rs.getAllRopes();
+
+        for(Rope rop : ropeList){
+            System.out.println("Dla rope o nazwie " + rop.getName() + " i typie " + rop.getRopeType());
+            for(WarehouseRope wRope : rop.getWarehouseRopes()){
+                System.out.println("Dla magazynu o nazwie " + wRope.getWarehouse().getName() + " i id " + wRope.getWarehouse().getId() +
+                        " ilość lin wynosi" + wRope.getAmount());
+            }
+        }
     }
 }
