@@ -17,8 +17,8 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class TwinRope extends Rope{
 
 
-    public TwinRope(String name, int elongation, double diameter, boolean isActive, BasicRopeInfo basicRopeInfo, boolean isDesigneForIceClimbing) {
-        super(name, elongation, diameter, isActive, basicRopeInfo);
+    public TwinRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo, boolean isDesigneForIceClimbing) {
+        super(name, elongation, diameter, ropeType, basicRopeInfo);
         this.isDesigneForIceClimbing = isDesigneForIceClimbing;
     }
 

@@ -2,6 +2,7 @@ package priv.stud;
 
 import priv.stud.database.entities.ropes.BasicRopeInfo;
 import priv.stud.database.entities.ropes.Rope;
+import priv.stud.database.entities.ropes.RopeType;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
@@ -13,7 +14,7 @@ public class Main {
         //Create entities
         RopeServiceImpl rs = new RopeServiceImpl();
         BasicRopeInfo bri = new BasicRopeInfo(499.99, 60, 1, 1, "ZYGZAK", 1, false);
-        Rope rope = rs.createNewCommonRope("Dragon", 1, 0.1, bri);
+        Rope rope = rs.createNewCommonRope("Dragon", 1, 0.1, RopeType.DYNAMIC, bri);
 
         WarehouseServiceImpl ws = new WarehouseServiceImpl();
         Warehouse warehouse = ws.addWarehouse("Pierwszy", "Wrocław", "Przestrzenna", "12", "02-122");

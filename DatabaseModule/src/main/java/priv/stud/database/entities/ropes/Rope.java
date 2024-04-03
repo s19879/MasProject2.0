@@ -29,9 +29,9 @@ public abstract class Rope{
 
     private boolean isActive;
 
+    @Basic
     @Enumerated(EnumType.STRING)
-    @Type(type = "priv.stud.database.entities.ropes.RopeType")
-    private Enum<RopeType> ropeType;
+    private RopeType ropeType;
 
     @Embedded
     private BasicRopeInfo basicRopeInfo;
@@ -42,11 +42,12 @@ public abstract class Rope{
     @OneToMany(mappedBy = "rope")
     private Set<OrderedModel> orderedModels;
 
-    public Rope(String name, int elongation, double diameter, boolean isActive, BasicRopeInfo basicRopeInfo) {
+    public Rope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo) {
         this.name = name;
         this.elongation = elongation;
         this.diameter = diameter;
-        this.isActive = isActive;
+        this.isActive = true;
+        this.ropeType = ropeType;
         this.basicRopeInfo = basicRopeInfo;
     }
 }

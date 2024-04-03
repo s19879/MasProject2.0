@@ -16,12 +16,12 @@ public class CommonRope extends Rope{
 
 
     private String ropeKind;
-    CommonRope(String name, int elongation, double diameeter, BasicRopeInfo basicRopeInfo, String ropeKind){
-        super(name, elongation, diameeter, true, basicRopeInfo);
+    CommonRope(String name, int elongation, double diameeter, RopeType ropeType, BasicRopeInfo basicRopeInfo){
+        super(name, elongation, diameeter, ropeType, basicRopeInfo);
     }
 
-    public CommonRope(String name, int elongation, double diameter, boolean isActive, BasicRopeInfo basicRopeInfo, String ropeKind) {
-        super(name, elongation, diameter, isActive, basicRopeInfo);
+    public CommonRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo, String ropeKind) {
+        super(name, elongation, diameter, ropeType, basicRopeInfo);
         this.ropeKind = ropeKind;
     }
 }
