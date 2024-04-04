@@ -24,4 +24,11 @@ public class OrderedModel {
 
     @ManyToOne
     private Rope rope;
+
+    public OrderedModel(Rope rope, Order order, int amount, boolean isReducedValue){
+        this.rope = rope;
+        this.order = order;
+        this.amount = amount;
+        this.isReducedValue = isReducedValue;
+    }
 }

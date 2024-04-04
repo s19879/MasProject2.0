@@ -8,9 +8,7 @@ import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @NoArgsConstructor
 @Setter
@@ -34,13 +32,14 @@ public class Order {
     private Store store;
 
     @OneToMany(mappedBy = "order")
-    private Set<OrderedModel> orderedModels = new HashSet<>();
+    private List<OrderedModel> orderedModels;
 
     public Order(@NonNull Store store, @NonNull Warehouse warehouse){
         date = new Date();
         this.store = store;
         this.warehouse = warehouse;
         this.status = OrderStatus.OPEN;
+        orderedModels = new ArrayList<>();
     }
 
 }

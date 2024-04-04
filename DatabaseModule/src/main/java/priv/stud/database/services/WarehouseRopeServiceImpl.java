@@ -6,7 +6,9 @@ import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
 import priv.stud.database.repositories.WarehouseRopeRepository;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class WarehouseRopeServiceImpl implements WarehouseRopeService {
@@ -27,11 +29,11 @@ public class WarehouseRopeServiceImpl implements WarehouseRopeService {
     }
 
     protected void saveWarehouseRope(int amount, @NonNull Rope rope, @NonNull  Warehouse warehouse){
-        Set<WarehouseRope> warehouseRopes = warehouse.getWarehouseRopes();
+        List<WarehouseRope> warehouseRopes = warehouse.getWarehouseRopes();
         WarehouseRope wr = new  WarehouseRope(amount, rope, warehouse);
 
         if(warehouseRopes == null)
-            warehouseRopes = new HashSet<>();
+            warehouseRopes = new ArrayList<>();
 
         warehouseRopes.add(new WarehouseRope(amount, rope, warehouse));
         warehouse.setWarehouseRopes(warehouseRopes);

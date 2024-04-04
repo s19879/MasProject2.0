@@ -7,6 +7,8 @@ import priv.stud.database.entities.warehouse.WarehouseRope;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -37,10 +39,10 @@ public abstract class Rope{
     private BasicRopeInfo basicRopeInfo;
 
     @OneToMany(mappedBy = "rope")
-    private Set<WarehouseRope> warehouseRopes;
+    private List<WarehouseRope> warehouseRopes;
 
     @OneToMany(mappedBy = "rope")
-    private Set<OrderedModel> orderedModels;
+    private List<OrderedModel> orderedModels;
 
     public Rope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo) {
         this.name = name;
@@ -49,5 +51,7 @@ public abstract class Rope{
         this.isActive = true;
         this.ropeType = ropeType;
         this.basicRopeInfo = basicRopeInfo;
+        orderedModels = new ArrayList<>();
+        warehouseRopes = new ArrayList<>();
     }
 }
