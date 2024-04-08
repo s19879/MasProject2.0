@@ -15,7 +15,7 @@ public class OrderedModelServiceImpl implements OrderedModelService{
 
     @Override
     public OrderedModel addOrderedModel(Rope rope, Order order, int amount, boolean isReducedValue) {
-        return new OrderedModel();
+        return new OrderedModel(rope,order,amount,isReducedValue);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package priv.stud.database.entities.orders;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,7 +8,7 @@ import priv.stud.database.entities.ropes.Rope;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity(name = "ORDERED_MODEL")

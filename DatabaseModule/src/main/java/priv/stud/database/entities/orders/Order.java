@@ -1,16 +1,13 @@
 package priv.stud.database.entities.orders;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 
 import javax.persistence.*;
 import java.util.*;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Setter
 @Getter
 @Entity(name = "ORDERS")
