@@ -6,7 +6,7 @@ import priv.stud.database.entities.stores.Store;
 
 public interface StoreService {
     Store addStore(@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode);
-    void sendDaylyEaringsAmount(Store store);
+    void sendDailyEaringsAmount(Store store);
     boolean addOrderQualif(Store store, Order order);
     Order findOrderQualif(Store store, int id);
 

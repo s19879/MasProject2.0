@@ -28,7 +28,7 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public void sendDaylyEaringsAmount(Store store) {
+    public void sendDailyEaringsAmount(Store store) {
 
     }
 
