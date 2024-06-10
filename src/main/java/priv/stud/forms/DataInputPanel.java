@@ -43,6 +43,7 @@ public class DataInputPanel extends CustomPanel {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Wprowadzanie danych");
         ropesInStock = mainForm.getWarehouse().getWarehouseRopes().stream()
+                .filter(e -> e.getAmount() > 0)
                 .map(WarehouseRope::getRope)
                 .collect(Collectors.toList());
 

@@ -10,8 +10,7 @@ import priv.stud.database.entities.orders.Order;
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+
 
 @NoArgsConstructor
 @Setter
@@ -30,6 +29,12 @@ public class Store {
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @MapKey(name = "id")
     private Map<Long, Order> ordersQualif = new HashMap<>();
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private ExternalStore externalStore = null;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private CompanyStore companyStore = null;
 
 
     public Store(@NonNull String name,@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode) {

@@ -6,4 +6,6 @@ import priv.stud.database.entities.warehouse.WarehouseRope;
 
 public interface WarehouseRopeService {
     WarehouseRope getWarehouseRope(Rope rope, Warehouse warehouse);
+
+    void saveWarehouseRope(WarehouseRope warehouseRope);
 }

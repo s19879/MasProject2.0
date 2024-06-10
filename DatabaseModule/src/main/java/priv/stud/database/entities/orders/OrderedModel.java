@@ -31,4 +31,9 @@ public class OrderedModel {
         this.amount = amount;
         this.isReducedValue = isReducedValue;
     }
+
+    @Override
+    public String toString(){
+        return rope.getName() + ", ilość: " + amount;
+    }
 }

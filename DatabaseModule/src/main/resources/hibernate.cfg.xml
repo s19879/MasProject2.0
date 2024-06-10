@@ -21,6 +21,8 @@
         <mapping class="priv.stud.database.entities.warehouse.WarehouseRope" />
         <mapping class="priv.stud.database.entities.warehouse.Worker" />
         <mapping class="priv.stud.database.entities.stores.Store" />
+        <mapping class="priv.stud.database.entities.stores.ExternalStore" />
+        <mapping class="priv.stud.database.entities.stores.CompanyStore" />
         <mapping class="priv.stud.database.entities.orders.Order" />
         <mapping class="priv.stud.database.entities.orders.OrderedModel" />
 

@@ -3,8 +3,9 @@ package priv.stud.forms;
 import priv.stud.database.entities.orders.OrderStatus;
 import priv.stud.database.entities.orders.OrderedModel;
 import priv.stud.database.entities.stores.Store;
-import priv.stud.database.services.OrderService;
-import priv.stud.database.services.OrderServiceImpl;
+import priv.stud.database.entities.warehouse.Warehouse;
+import priv.stud.database.entities.warehouse.WarehouseRope;
+import priv.stud.database.services.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,10 +14,12 @@ import java.awt.event.ActionListener;
 public class CompletationPanel extends CustomPanel{
 
     private final OrderService orderService;
+    private final WarehouseRopeService warehouseRopeService;
 
     CompletationPanel(MainForm mainForm){
         super(mainForm);
         orderService = new OrderServiceImpl();
+        warehouseRopeService = new WarehouseRopeServiceImpl();
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Kompletacja zamówienia");
         setOrderText();
@@ -68,6 +71,15 @@ public class CompletationPanel extends CustomPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 orderService.changeStatus(mainForm.getOrder(),OrderStatus.DONE);
+                Warehouse warehouse = mainForm.getWarehouse();
+                for(OrderedModel model : mainForm.getOrder().getOrderedModels()){
+                        WarehouseRope warehouseRope = warehouseRopeService.getWarehouseRope(model.getRope(), warehouse);
+                        warehouseRope.setAmount(warehouseRope.getAmount() - model.getAmount());
+                        warehouseRopeService.saveWarehouseRope(warehouseRope);
+                }
+                mainForm.changePanel(mainForm.createMainPanel());
+                mainForm.setStore(null);
+                mainForm.setOrder(null);
 //                for(OrderedModel model : order.getOrderedModels()){
 //                    WorkshopLine workshopLine = WorkshopLine.getRopeInWorkshop(order.getWorkshop(), model.getRope());
 //                    workshopLine.setAmount(workshopLine.getAmount() - model.getAmount());

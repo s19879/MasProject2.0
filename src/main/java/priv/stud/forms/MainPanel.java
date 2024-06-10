@@ -33,8 +33,8 @@ public class MainPanel extends CustomPanel{
         ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Żaden produkt nie został wybrany");
-                Store store = storeService.findStoreById(3L);
+               // JOptionPane.showMessageDialog(null, "Żaden produkt nie został wybrany");
+                Store store = storeService.findStoreById(1L);
                 for(Map.Entry<Long, Order> entry : store.getOrdersQualif().entrySet()){
                     System.out.println(entry.getKey() + " " + entry.getValue());
                 }

@@ -23,8 +23,13 @@ public class WarehouseRopeServiceImpl implements WarehouseRopeService {
         return repository.getWarehouseRope(rope,warehouse);
     }
 
+    @Override
+    public void saveWarehouseRope(WarehouseRope warehouseRope) {
+        repository.save(warehouseRope);
+    }
 
-    protected void updateAmount(@NonNull WarehouseRope warehouseRope) {
+
+    public void updateAmount(@NonNull WarehouseRope warehouseRope) {
         repository.save(warehouseRope);
     }
 

@@ -2,6 +2,8 @@ package priv.stud.database.services;
 
 import lombok.NonNull;
 import priv.stud.database.entities.orders.Order;
+import priv.stud.database.entities.stores.CompanyStore;
+import priv.stud.database.entities.stores.ExternalStore;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.repositories.StoreRepository;
 
@@ -19,11 +21,45 @@ public class StoreServiceImpl implements StoreService {
 
     }
 
+//    @Override
+//    public Store addStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode){
+//        Store store = new Store(name, city, street, houseNumber, zipCode);
+//        storeRepository.save(store);
+//        return store;
+//    }
+
     @Override
-    public Store addStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode){
+    public Store addCompanyStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, @NonNull String nameOfManager, int employeesNumber) {
         Store store = new Store(name, city, street, houseNumber, zipCode);
+        store.setCompanyStore(new CompanyStore(nameOfManager, employeesNumber));
         storeRepository.save(store);
         return store;
+    }
+
+    @Override
+    public Store addExternalStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, double loyality) {
+        Store store = new Store(name, city, street, houseNumber, zipCode);
+        store.setExternalStore(new ExternalStore(loyality));
+        storeRepository.save(store);
+        return store;
+    }
+
+    @Override
+    public boolean addExternalStoreToStore(Store store, double loyality) {
+        if(store.getExternalStore() == null){
+            store.setExternalStore(new ExternalStore(loyality));
+            storeRepository.save(store);
+            return true;
+        } else return false;
+    }
+
+    @Override
+    public boolean addCompanyStoreToStore(Store store, @NonNull String nameOfManager, int employeesNumber) {
+        if(store.getCompanyStore() == null){
+            store.setCompanyStore(new CompanyStore(nameOfManager, employeesNumber));
+            storeRepository.save(store);
+            return true;
+        } else return false;
     }
 
     @Override

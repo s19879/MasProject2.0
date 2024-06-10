@@ -42,7 +42,9 @@ public class Main {
 
 
             StoreServiceImpl storeService = new StoreServiceImpl();
-            Store store = storeService.addStore("Sklep 1", "Wrocław", "Przestrzenna", "12", "02-122");
+            Store store = storeService.addExternalStore("Sklep 1", "Wrocław", "Przestrzenna", "12", "02-122", 0.22);
+            System.out.println(storeService.addExternalStoreToStore(store, 0.33));
+            System.out.println(storeService.addCompanyStoreToStore(store, "Adam Kowalski", 14));
 
             ws.addOrder(warehouse1, store);
 
@@ -57,7 +59,7 @@ public class Main {
 //            }
 
 
-            Store storeForSwing = storeService.addStore("Sklep 2", "Warszawa", "Żubra", "1", "01-066");
+            Store storeForSwing = storeService.addCompanyStore("Sklep 2", "Warszawa", "Żubra", "1", "01-066", "Jan kowalski", 5);
 
             List<Rope> ropeList = rs.getAllRopes();
 
@@ -71,13 +73,13 @@ public class Main {
 //                }
             }
 
-            Store store3 = storeService.addStore("Sklep 3", "Warszawa", "Obozowa", "76", "02-425");
+            Store store3 = storeService.addCompanyStore("Sklep 3", "Warszawa", "Obozowa", "76", "02-425", "Adam Mickiewicz", 10);
 
             OrderedModelService oMS = new OrderedModelServiceImpl();
 
         }
 
-//
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
