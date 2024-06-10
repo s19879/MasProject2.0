@@ -38,11 +38,11 @@ public abstract class Rope{
     @Embedded
     private BasicRopeInfo basicRopeInfo;
 
-    @OneToMany(mappedBy = "rope")
-    private List<WarehouseRope> warehouseRopes;
+    @OneToMany(mappedBy = "rope", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<WarehouseRope> warehouseRopes = new ArrayList<>();
 
-    @OneToMany(mappedBy = "rope")
-    private List<OrderedModel> orderedModels;
+    @OneToMany(mappedBy = "rope", cascade = CascadeType.ALL)
+    private List<OrderedModel> orderedModels = new ArrayList<>();
 
     public Rope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo) {
         this.name = name;
@@ -51,7 +51,10 @@ public abstract class Rope{
         this.isActive = true;
         this.ropeType = ropeType;
         this.basicRopeInfo = basicRopeInfo;
-        orderedModels = new ArrayList<>();
-        warehouseRopes = new ArrayList<>();
+    }
+
+    @Override
+    public String toString(){
+        return name;
     }
 }

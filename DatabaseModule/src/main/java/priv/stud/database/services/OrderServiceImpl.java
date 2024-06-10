@@ -28,7 +28,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean changeStatus(Order order, OrderStatus status) {
-        return false;
+        order.setStatus(status);
+        return repository.save(order) != null;
+
     }
 
     @Override
@@ -47,6 +49,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void changeStatus(OrderStatus orderStatus, Order order) {
             order.setStatus(orderStatus);
+    }
+
+    @Override
+    public Order getOrderById(Long id) {
+        return repository.findById(id);
     }
 
 

@@ -4,10 +4,15 @@ import lombok.NonNull;
 import priv.stud.database.entities.orders.Order;
 import priv.stud.database.entities.stores.Store;
 
+import java.util.List;
+
 public interface StoreService {
-    Store addStore(@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode);
-    void sendDaylyEaringsAmount(Store store);
+    Store addStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode);
+    void sendDailyEaringsAmount(Store store);
     boolean addOrderQualif(Store store, Order order);
     Order findOrderQualif(Store store, int id);
+    List<Store> findAllStores();
+
+    Store findStoreById(Long id);
 
 }

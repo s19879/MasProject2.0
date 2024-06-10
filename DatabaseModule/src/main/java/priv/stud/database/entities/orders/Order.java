@@ -31,7 +31,7 @@ public class Order {
     @ManyToOne
     private Store store;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderedModel> orderedModels;
 
     public Order(@NonNull Store store, @NonNull Warehouse warehouse){
@@ -40,6 +40,11 @@ public class Order {
         this.warehouse = warehouse;
         this.status = OrderStatus.OPEN;
         orderedModels = new ArrayList<>();
+    }
+
+    @Override
+    public String toString(){
+        return warehouse.getName() + " " + status;
     }
 
 }

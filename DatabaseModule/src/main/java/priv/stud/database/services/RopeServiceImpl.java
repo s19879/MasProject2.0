@@ -11,14 +11,14 @@ public class RopeServiceImpl implements RopeService {
         ropeRepository = new RopeRepository();
     }
 
-    public CommonRope createNewCommonRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo){
-        CommonRope rope = new CommonRope(name, elongation,  diameter, ropeType, basicRopeInfo, "SINGLE");
+    public CommonRope createNewCommonRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo, String ropeKind){
+        CommonRope rope = new CommonRope(name, elongation,  diameter, ropeType, basicRopeInfo, ropeKind);
         return (CommonRope) ropeRepository.save(rope);
 
     }
 
-    public  TwinRope createNewTwinRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo){
-        TwinRope rope = new TwinRope(name, elongation,diameter, ropeType, basicRopeInfo, true);
+    public  TwinRope createNewTwinRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo, boolean isDesignedForIceClimbing){
+        TwinRope rope = new TwinRope(name, elongation,diameter, ropeType, basicRopeInfo, isDesignedForIceClimbing);
         return (TwinRope) ropeRepository.save(rope);
     }
 

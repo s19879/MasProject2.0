@@ -19,16 +19,15 @@ public class StoreServiceImpl implements StoreService {
 
     }
 
-
     @Override
-    public Store addStore(@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode){
-        Store store = new Store(city, street, houseNumber, zipCode);
+    public Store addStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode){
+        Store store = new Store(name, city, street, houseNumber, zipCode);
         storeRepository.save(store);
         return store;
     }
 
     @Override
-    public void sendDaylyEaringsAmount(Store store) {
+    public void sendDailyEaringsAmount(Store store) {
 
     }
 
@@ -50,6 +49,16 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Order findOrderQualif(Store store, int id) {
         return null;
+    }
+
+    @Override
+    public List<Store> findAllStores() {
+        return storeRepository.findAll();
+    }
+
+    @Override
+    public Store findStoreById(Long id) {
+        return storeRepository.findById(id);
     }
 
     public List<Store> getAllStores(){

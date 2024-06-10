@@ -1,21 +1,29 @@
 package priv.stud.database.services;
 
 import priv.stud.database.entities.orders.Order;
+import priv.stud.database.entities.orders.OrderStatus;
 import priv.stud.database.entities.orders.OrderedModel;
 import priv.stud.database.entities.ropes.Rope;
+import priv.stud.database.repositories.OrderRepository;
 import priv.stud.database.repositories.OrderedModelRepository;
 
 public class OrderedModelServiceImpl implements OrderedModelService{
 
     private final OrderedModelRepository repository;
+    private final OrderRepository orderRepository;
 
     public OrderedModelServiceImpl(){
             repository = new OrderedModelRepository();
+            orderRepository = new OrderRepository();
     }
 
     @Override
     public OrderedModel addOrderedModel(Rope rope, Order order, int amount, boolean isReducedValue) {
-        return new OrderedModel();
+        OrderedModel orderedModel = new OrderedModel(rope, order, amount, isReducedValue);
+        order.getOrderedModels().add(orderedModel);
+        orderRepository.save(order);
+        return orderedModel;
+        //return repository.save(new OrderedModel(rope, order, amount, isReducedValue));
     }
 
     @Override

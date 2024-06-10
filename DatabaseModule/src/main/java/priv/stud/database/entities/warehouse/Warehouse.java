@@ -27,13 +27,13 @@ public class Warehouse {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "warehouse")
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<WarehouseRope> warehouseRopes = new ArrayList<>();
 
-    @OneToMany(mappedBy = "warehouse")
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
-    @OneToMany(mappedBy = "warehouse")
+    @OneToMany(mappedBy = "warehouse" , cascade = CascadeType.ALL)
     private List<Worker> workers = new ArrayList<>();
 
 

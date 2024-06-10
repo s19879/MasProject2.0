@@ -61,10 +61,9 @@ public class WarehouseServiceImpl implements WarehouseService {
     @Override
     public Order addOrder(Warehouse warehouse, Store store) {
         Order order = orderService.addOrder(warehouse, store);
-        warehouse.getOrders().add(order);
+        //List<Order> orders = warehouse.getOrders();
         repository.save(warehouse);
-        storeService.addOrderQualif(store, order);
+        //storeService.addOrderQualif(store, order);
         return order;
     }
-
 }

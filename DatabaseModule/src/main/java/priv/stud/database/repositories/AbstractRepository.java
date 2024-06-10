@@ -9,9 +9,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID> {
-    protected final Session session = DatabaseSession.getSession();
-
+public abstract class AbstractRepository <T, ID> implements ICrudRepository<T, ID>{
     protected Class<T> clazz;
 
     protected AbstractRepository(Class<T> clazz) {
@@ -21,15 +19,19 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
 
     @Override
     public List<T> findAll(){
+        Session session = DatabaseSession.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
         Root<T> root = criteriaQuery.from(clazz);
         CriteriaQuery<T> all = criteriaQuery.select(root);
-        return session.createQuery(all).getResultList();
+        List<T> resultList = session.createQuery(all).getResultList();
+        session.close();
+        return resultList;
     }
 
     @Override
     public T findById(ID id) {
+        Session session = DatabaseSession.openSession();
         T entity = null;
         Transaction transaction = null;
         try{
@@ -39,26 +41,32 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
         } catch (Exception e) {
             if (transaction != null)
                 transaction.rollback();
+        } finally {
+            session.close();
         }
         return entity;
     }
 
     @Override
-    public List<T> findListByField(String fieldName, String value){
+    public List<T> findAllByField(String fieldName, String value){
+        Session session = DatabaseSession.openSession();
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(clazz);
         Root<T> root = criteriaQuery.from(clazz);
         criteriaQuery.select(root).where(criteriaBuilder.equal(root.get(fieldName), value));
-        return session.createQuery(criteriaQuery).getResultList();
+        List<T> resultList = session.createQuery(criteriaQuery).getResultList();
+        session.close();
+        return resultList;
     }
 
     @Override
     public T findByFieldName(String fieldName, String value){
-        return findListByField(fieldName, value).get(0);
+        return findAllByField(fieldName, value).get(0);
     }
 
     @Override
     public T save(T saveObject) {
+        Session session = DatabaseSession.openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
@@ -69,11 +77,14 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
             if (transaction != null)
                 transaction.rollback();
             return null;
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public boolean deleteById(ID id) {
+        Session session = DatabaseSession.openSession();
         Transaction transaction = null;
         try{
             transaction = session.beginTransaction();
@@ -86,11 +97,14 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
         } catch (Exception e){
             if(transaction != null)
                 transaction.rollback();
+        } finally {
+            session.close();
         }
         return false;
     }
 
     public boolean deleteByFieldName(String fieldName, String name){
+        Session session = DatabaseSession.openSession();
         Transaction transaction = null;
         try{
             transaction = session.beginTransaction();
@@ -103,42 +117,54 @@ public abstract class AbstractRepository<T, ID> implements ICrudRepository<T, ID
         } catch (Exception e){
             if(transaction != null)
                 transaction.rollback();
+        } finally {
+            session.close();
         }
         return false;
     }
 
     @Override
     public boolean delete(T entity) {
+        Session session = DatabaseSession.openSession();
         Transaction transaction = null;
         try{
             transaction = session.beginTransaction();
-            session.delete(entity);
+            session.remove(entity);
+            session.flush();
+            session.evict(entity);
             transaction.commit();
+
             return true;
         } catch (Exception e){
             if (transaction != null)
                 transaction.rollback();
+        } finally {
+            session.close();
         }
         return false;
     }
 
     @Override
     public boolean existById(ID id) {
-        boolean exists = false;
+        Session session = DatabaseSession.openSession();
         Transaction transaction = null;
         try{
             transaction = session.beginTransaction();
-            exists = session.get(clazz, (Long) id) != null;
+            boolean exists = session.get(clazz, (Long) id) != null;
             transaction.commit();
         } catch(Exception e){
             if(transaction != null)
                 transaction.rollback();
+        } finally {
+            session.close();
         }
-        return exists;
+        return false;
     }
 
     @Override
     public boolean existByName(String fieldName, String name){
-        return findListByField(fieldName, name).get(0) != null;
+        return !findAllByField(fieldName, name).isEmpty();
     }
+
+
 }

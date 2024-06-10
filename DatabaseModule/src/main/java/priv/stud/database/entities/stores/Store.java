@@ -22,16 +22,24 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String name;
+
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "store")
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @MapKey(name = "id")
     private Map<Long, Order> ordersQualif = new HashMap<>();
 
 
-    public Store(@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode) {
+    public Store(@NonNull String name,@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode) {
         this.address = new Address(city, street, houseNumber, zipCode);
+        this.name = name;
+    }
+
+    @Override
+    public String toString(){
+        return name + ", " + address.getCity() + " " + address.getStreet() + " " + address.getStreetNumber();
     }
 }
 

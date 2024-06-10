@@ -5,6 +5,7 @@ import lombok.*;
 import java.util.EnumSet;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -14,10 +15,10 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class CommonRope extends Rope{
 
-
+    @NotNull
     private String ropeKind;
-    CommonRope(String name, int elongation, double diameeter, RopeType ropeType, BasicRopeInfo basicRopeInfo){
-        super(name, elongation, diameeter, ropeType, basicRopeInfo);
+    CommonRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo){
+        super(name, elongation, diameter, ropeType, basicRopeInfo);
     }
 
     public CommonRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo, String ropeKind) {

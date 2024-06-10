@@ -16,6 +16,8 @@ public interface OrderService {
     double calculateTotalPrice();
     void changeStatus(OrderStatus orderStatus, Order order);
 
+    Order getOrderById(Long id);
+
     static List<Order> getOrderList(){
         OrderRepository orderRepository = new OrderRepository();
         return orderRepository.findAll();

@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface RopeService {
 
-    CommonRope createNewCommonRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo);
-    TwinRope createNewTwinRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo);
+    CommonRope createNewCommonRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo, String ropeKind);
+    TwinRope createNewTwinRope(String name, int elongation, double diameter, RopeType ropeType, BasicRopeInfo basicRopeInfo, boolean isDesignedForIceClimbing);
+
     boolean deleteRope(Rope rope);
     Rope getRopeByName(String name);
     Rope getRopeById(int id);

@@ -3,10 +3,9 @@ package priv.stud.database.repositories;
 import java.util.List;
 
 public interface ICrudRepository<T, ID>{
-
     List<T> findAll();
     T findById(ID id);
-    List<T> findListByField(String fieldName, String value);
+    List<T> findAllByField(String fieldName, String value);
     T findByFieldName(String fieldName, String value);
     T save(T saveObject);
     boolean deleteById(ID id);
