@@ -13,7 +13,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity(name = "TWIN_ROPE")
 //@DiscriminatorValue("COMMON") //W przypadku single_table
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
-
 public class TwinRope extends Rope{
 
 

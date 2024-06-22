@@ -36,9 +36,9 @@ public class DataInputPanel extends CustomPanel {
 
     DataInputPanel(MainForm mainForm){
         super(mainForm);
-        ropeService = new RopeServiceImpl();
-        orderedModelService = new OrderedModelServiceImpl();
-        orderService = new OrderServiceImpl();
+        ropeService = ServiceFactory.getRopeService();
+        orderedModelService = ServiceFactory.getOrderedModelService();
+        orderService = ServiceFactory.getOrderService();
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Wprowadzanie danych");
@@ -192,8 +192,9 @@ public class DataInputPanel extends CustomPanel {
                 mainForm.changePanel(mainForm.createCorrectionPanel(verificationNote));
             } else {
                 orderService.changeStatus(order, OrderStatus.OPEN);
+                mainForm.changePanel(mainForm.createComplementationPanel());
             }
-
+//
 //            int idOrderStrore  = store.addOrder(workshop, orderedModelList);
 //            Order order = store.getOrderMapQualif().get(idOrderStrore);
 //            if(isReduced == true){

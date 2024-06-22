@@ -20,6 +20,10 @@
         <mapping class="priv.stud.database.entities.warehouse.Warehouse" />
         <mapping class="priv.stud.database.entities.warehouse.WarehouseRope" />
         <mapping class="priv.stud.database.entities.warehouse.Worker" />
+        <mapping class="priv.stud.database.entities.warehouse.Accountant" />
+        <mapping class="priv.stud.database.entities.warehouse.WarehouseWorker" />
+        <mapping class="priv.stud.database.entities.warehouse.Warehouseman" />
+        <mapping class="priv.stud.database.entities.warehouse.Manager" />
         <mapping class="priv.stud.database.entities.stores.Store" />
         <mapping class="priv.stud.database.entities.stores.ExternalStore" />
         <mapping class="priv.stud.database.entities.stores.CompanyStore" />

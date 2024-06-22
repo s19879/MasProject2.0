@@ -18,8 +18,8 @@ public class CompletationPanel extends CustomPanel{
 
     CompletationPanel(MainForm mainForm){
         super(mainForm);
-        orderService = new OrderServiceImpl();
-        warehouseRopeService = new WarehouseRopeServiceImpl();
+        orderService = ServiceFactory.getOrderService();
+        warehouseRopeService = ServiceFactory.getWarehouseRopeService();
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Kompletacja zamówienia");
         setOrderText();

@@ -9,8 +9,8 @@ import java.util.List;
 public interface StoreService {
     //Store addStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode);
 
-    Store addCompanyStore( @NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, @NonNull String nameOfManager, int employeesNumber);
-    Store addExternalStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, double loyality);
+    Store addCompanyStore( @NonNull String name, @NonNull String mail, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, @NonNull String nameOfManager, int employeesNumber);
+    Store addExternalStore(@NonNull String name, @NonNull String mail, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, double loyality);
 
     boolean addExternalStoreToStore(Store store, double loyality);
     boolean addCompanyStoreToStore(Store store, @NonNull String nameOfManager, int employeesNumber);

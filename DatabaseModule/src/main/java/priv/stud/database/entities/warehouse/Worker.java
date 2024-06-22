@@ -2,6 +2,7 @@ package priv.stud.database.entities.warehouse;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import priv.stud.database.entities.Address;
 
@@ -11,8 +12,9 @@ import java.sql.Date;
 @NoArgsConstructor
 @Getter
 @Setter
+@Inheritance(strategy = InheritanceType.JOINED)
 @Entity(name = "WORKER")
-public class Worker {
+public abstract class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -27,4 +29,11 @@ public class Worker {
 
     @ManyToOne
     private Warehouse warehouse;
+
+    public Worker(@NonNull String name, @NonNull String lastName, @NonNull String pesel, @NonNull Date birthDate){
+        this.name = name;
+        this.lastName = lastName;
+        this.pesel = pesel;
+        this.birthDate = birthDate;
+    }
 }

@@ -1,10 +1,7 @@
 package priv.stud.forms;
 
 import priv.stud.database.entities.stores.Store;
-import priv.stud.database.services.StoreService;
-import priv.stud.database.services.StoreServiceImpl;
-import priv.stud.database.services.WarehouseService;
-import priv.stud.database.services.WarehouseServiceImpl;
+import priv.stud.database.services.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +12,7 @@ public class VerificationPanel extends CustomPanel {
     private StoreService storeService;
     public VerificationPanel(MainForm mainForm){
         super(mainForm);
-        storeService = new StoreServiceImpl();
+        storeService = ServiceFactory.getStoreService();
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Weryfikacja zamówienia");

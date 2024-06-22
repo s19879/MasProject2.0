@@ -2,10 +2,7 @@ package priv.stud.forms;
 
 import priv.stud.database.entities.orders.Order;
 import priv.stud.database.entities.stores.Store;
-import priv.stud.database.services.StoreService;
-import priv.stud.database.services.StoreServiceImpl;
-import priv.stud.database.services.WarehouseService;
-import priv.stud.database.services.WarehouseServiceImpl;
+import priv.stud.database.services.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +14,7 @@ public class MainPanel extends CustomPanel{
     StoreService storeService;
     public MainPanel(MainForm mainForm){
         super(mainForm);
-        storeService = new StoreServiceImpl();
+        storeService = ServiceFactory.getStoreService();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setTitle("Obsługa zamówień");
         setBackground(Color.BLUE);

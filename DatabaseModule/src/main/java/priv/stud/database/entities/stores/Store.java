@@ -23,6 +23,8 @@ public class Store {
 
     private String name;
 
+    private String mail;
+
     @Embedded
     private Address address;
 
@@ -37,14 +39,15 @@ public class Store {
     private CompanyStore companyStore = null;
 
 
-    public Store(@NonNull String name,@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode) {
+    public Store(@NonNull String name, @NonNull String mail,@NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode) {
         this.address = new Address(city, street, houseNumber, zipCode);
         this.name = name;
+        this.mail = mail;
     }
 
     @Override
     public String toString(){
-        return name + ", " + address.getCity() + " " + address.getStreet() + " " + address.getStreetNumber();
+        return name + ", " + address;
     }
 }
 

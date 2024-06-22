@@ -29,16 +29,16 @@ public class StoreServiceImpl implements StoreService {
 //    }
 
     @Override
-    public Store addCompanyStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, @NonNull String nameOfManager, int employeesNumber) {
-        Store store = new Store(name, city, street, houseNumber, zipCode);
+    public Store addCompanyStore(@NonNull String name, @NonNull String mail, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, @NonNull String nameOfManager, int employeesNumber) {
+        Store store = new Store(name, mail, city, street, houseNumber, zipCode);
         store.setCompanyStore(new CompanyStore(nameOfManager, employeesNumber));
         storeRepository.save(store);
         return store;
     }
 
     @Override
-    public Store addExternalStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, double loyality) {
-        Store store = new Store(name, city, street, houseNumber, zipCode);
+    public Store addExternalStore(@NonNull String name, @NonNull String mail, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, double loyality) {
+        Store store = new Store(name, mail, city, street, houseNumber, zipCode);
         store.setExternalStore(new ExternalStore(loyality));
         storeRepository.save(store);
         return store;

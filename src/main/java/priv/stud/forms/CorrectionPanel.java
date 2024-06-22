@@ -6,6 +6,7 @@ import priv.stud.database.entities.orders.OrderedModel;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.services.OrderService;
 import priv.stud.database.services.OrderServiceImpl;
+import priv.stud.database.services.ServiceFactory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +17,7 @@ public class CorrectionPanel extends CustomPanel{
     private OrderService orderService;
     protected CorrectionPanel(MainForm mainForm, String verificationNote) {
         super(mainForm);
-        orderService = new OrderServiceImpl();
+        orderService = ServiceFactory.getOrderService();
         setTitle("Akceptacja korekcji zamówienia");
         this.verficationNote = verificationNote;
         setOutputText();
@@ -25,7 +26,7 @@ public class CorrectionPanel extends CustomPanel{
 
     private void setOutputText(){
         Store store = mainForm.getStore();
-        String outputText = "Firma: " + store.getName() + " " + store.getAddress() + "\n";
+        String outputText = "Firma: " + store;//.getName() + " " + store.getAddress() + "\n";
         for(OrderedModel model : mainForm.getOrder().getOrderedModels()){
             if(model.isReducedValue()) outputText += "Lina " + model.getRope().getName()
                     + " została zredukowana do ilości " + model.getAmount();

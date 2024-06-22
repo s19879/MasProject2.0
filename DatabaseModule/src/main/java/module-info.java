@@ -17,5 +17,7 @@ module DatabaseModule {
     opens priv.stud.database.entities.orders to org.hibernate.orm.core;
     opens priv.stud.database.entities.warehouse to org.hibernate.orm.core;
     opens priv.stud.database.entities.stores to org.hibernate.orm.core;
+//    exports priv.stud.database.entities.workers;
+//    opens priv.stud.database.entities.workers to org.hibernate.orm.core;
 
 }

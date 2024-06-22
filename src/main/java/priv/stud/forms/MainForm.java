@@ -8,8 +8,10 @@ import priv.stud.database.entities.warehouse.Warehouse;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MainForm extends JFrame{
+public class MainForm extends JFrame implements ActionListener {
     protected JPanel currentPanel;
 
     @Getter
@@ -26,13 +28,20 @@ public class MainForm extends JFrame{
 
     public MainForm(){
         super("Obsługa zamówień");
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setSize(800, 600);
+
         setLayout(null);
         changePanel(createMainPanel());
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 
     public JPanel createMainPanel(){
         return new MainPanel(this);
@@ -52,5 +61,4 @@ public class MainForm extends JFrame{
     public JPanel createCorrectionPanel(String verificationNote) { return  new CorrectionPanel(this, verificationNote);}
 
     public JPanel createComplementationPanel() { return  new CompletationPanel(this); }
-
 }
