@@ -50,9 +50,9 @@ public class DataInputPanel extends CustomPanel {
         this.ropeArray =  ropesInStock
                 .stream()
                 .map(Rope::getName)
-                .toArray(String[]::new);//WorkshopLine.getAllRopesNameInWorkshop(orderMainForm.getWorkshop());
+                .toArray(String[]::new);
 
-        setSearchField();
+        setInputFields();
         setReadyButton();
         setOrderTable();
 
@@ -60,13 +60,14 @@ public class DataInputPanel extends CustomPanel {
 
 
 
-    private void setSearchField(){
+    private void setInputFields(){
         JPanel searchFieldPanel = createNewPanel();
 
         JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(200, 25));
 
         comboBox = new JComboBox<>(ropeArray);
+
         comboBox.setEditable(true);
         comboBox.setSelectedItem(null);
 
@@ -160,51 +161,33 @@ public class DataInputPanel extends CustomPanel {
         readyButton.addActionListener(e -> {
 
             String verificationNote = "";
-            java.util.List<OrderedModel> orderedModelList = new ArrayList<>();
-            Warehouse workshop = mainForm.getWarehouse();
-            Store store = mainForm.getStore();
             boolean isReduced = false;
 
             Order order = orderService.addOrder(mainForm.getWarehouse(), mainForm.getStore());
-            List<OrderedModel> orderedModels = new ArrayList<>();
+
             for(Map.Entry<Rope, Integer> entry : ropes.entrySet()){
-                boolean isEnoughRopes = true;
                 WarehouseRope warehouseRope = mainForm.getWarehouse().getWarehouseRopes().stream()
                         .filter(ropeInWorkshop -> ropeInWorkshop.getRope().equals(entry.getKey()) )
                         .findFirst()
                         .orElse(null);//(workshop, entry.getKey());
 
                 if(warehouseRope.getAmount() < entry.getValue()){
-                    isEnoughRopes = false;
                     verificationNote += "Lina o nazwie " + entry.getKey().getName() + " występuje w ilości "
                             + warehouseRope.getAmount() + " . W zamówieniu " + entry.getValue() + "\n";
                     entry.setValue(warehouseRope.getAmount());
                     isReduced = true;
                 }
                 orderedModelService.addOrderedModel(entry.getKey(), order, entry.getValue(), isReduced);
-                //orderedModelList.add(new OrderedModel(entry.getKey(), entry.getValue(), !isEnoughRopes ));
             }
             mainForm.setOrder(order);
 
-            if(isReduced == true){
-//                order.setStatus(OrderStatus.PENDING_APPROVAL);
+            if(isReduced){
                 orderService.changeStatus(order, OrderStatus.PENDING_APPROVAL);
                 mainForm.changePanel(mainForm.createCorrectionPanel(verificationNote));
             } else {
                 orderService.changeStatus(order, OrderStatus.OPEN);
                 mainForm.changePanel(mainForm.createComplementationPanel());
             }
-//
-//            int idOrderStrore  = store.addOrder(workshop, orderedModelList);
-//            Order order = store.getOrderMapQualif().get(idOrderStrore);
-//            if(isReduced == true){
-//                order.changeStatus(OrderStatus.PENDING_APPROVAL);
-//                orderMainForm.changePanel(orderMainForm.createCorrectionPanel(ropes, verificationNote, idOrderStrore));
-//            }
-//            else{
-//                order.changeStatus(OrderStatus.OPEN);
-//                orderMainForm.changePanel(orderMainForm.createComplementationPanel(idOrderStrore));
-//            }
 
         });
 

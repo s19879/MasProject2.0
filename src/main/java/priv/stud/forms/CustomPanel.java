@@ -1,5 +1,7 @@
 package priv.stud.forms;
 
+import lombok.NonNull;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -8,8 +10,13 @@ public class CustomPanel extends JPanel {
 
     protected MainForm mainForm;
 
-    protected CustomPanel(MainForm mainForm){
+
+    protected CustomPanel(@NonNull  MainForm mainForm){
         this.mainForm = mainForm;
+    }
+    protected CustomPanel(@NonNull MainForm mainForm, @NonNull LayoutManager layout){
+        this(mainForm);
+        setLayout(layout);
     }
 
     protected void setTitle(String title){

@@ -49,16 +49,16 @@ public class MainForm extends JFrame implements ActionListener {
 
     public JPanel createVerificationPanel(){ return new VerificationPanel(this);}
 
+    public JPanel createDataInputPanel() { return new DataInputPanel(this);}
+
+    public JPanel createCorrectionPanel(String verificationNote) { return  new CorrectionPanel(this, verificationNote);}
+
+    public JPanel createComplementationPanel() { return  new CompletationPanel(this); }
+
     public void changePanel(JPanel newPanel) {
         currentPanel = newPanel;
         setContentPane(currentPanel);
         invalidate();
         validate();
     }
-
-    public JPanel createDataInputPanel() { return new DataInputPanel(this);}
-
-    public JPanel createCorrectionPanel(String verificationNote) { return  new CorrectionPanel(this, verificationNote);}
-
-    public JPanel createComplementationPanel() { return  new CompletationPanel(this); }
 }

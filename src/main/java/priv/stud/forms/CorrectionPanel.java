@@ -19,6 +19,7 @@ public class CorrectionPanel extends CustomPanel{
         super(mainForm);
         orderService = ServiceFactory.getOrderService();
         setTitle("Akceptacja korekcji zamówienia");
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.verficationNote = verificationNote;
         setOutputText();
         setButton();
@@ -26,7 +27,7 @@ public class CorrectionPanel extends CustomPanel{
 
     private void setOutputText(){
         Store store = mainForm.getStore();
-        String outputText = "Firma: " + store;//.getName() + " " + store.getAddress() + "\n";
+        String outputText = "Firma: " + store;
         for(OrderedModel model : mainForm.getOrder().getOrderedModels()){
             if(model.isReducedValue()) outputText += "Lina " + model.getRope().getName()
                     + " została zredukowana do ilości " + model.getAmount();
