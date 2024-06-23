@@ -35,6 +35,7 @@ public class MainForm extends JFrame {
         super("Obsługa zamówień");
         setSize(800, 600);
         setLocationRelativeTo(null);
+
         if(worker != null && warehouse != null)
             changePanel(createMainPanel());
         else changePanel(createLoginPanel());

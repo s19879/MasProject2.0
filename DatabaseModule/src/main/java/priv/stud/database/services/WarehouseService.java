@@ -19,4 +19,5 @@ public interface WarehouseService {
     boolean checkAvailabilityOfRope(Rope rope, Warehouse warehouse);
     List<Order> getAllOrdersInMonth(Warehouse warehouse);
     Order addOrder(Warehouse warehouse, Store store);
+    public List<Warehouse> findAllWarehouses();
 }

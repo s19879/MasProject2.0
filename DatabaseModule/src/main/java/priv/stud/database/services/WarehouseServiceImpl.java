@@ -81,4 +81,9 @@ public class WarehouseServiceImpl implements WarehouseService {
         //storeService.addOrderQualif(store, order);
         return order;
     }
+
+    @Override
+    public List<Warehouse> findAllWarehouses() {
+        return repository.findAll();
+    }
 }

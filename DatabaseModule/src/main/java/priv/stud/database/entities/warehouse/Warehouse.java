@@ -36,5 +36,7 @@ public class Warehouse {
     @OneToMany(mappedBy = "warehouse" , cascade = CascadeType.ALL)
     private List<Worker> workers = new ArrayList<>();
 
-
+    @Override public String toString(){
+        return name + " ," + address;
+    }
 }

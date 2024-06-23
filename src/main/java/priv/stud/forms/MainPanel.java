@@ -14,19 +14,22 @@ public class MainPanel extends CustomPanel{
     StoreService storeService;
     public MainPanel(MainForm mainForm){
         super(mainForm);
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         storeService = ServiceFactory.getStoreService();
         WarehouseService warehouseService = ServiceFactory.getWarehouseService();
         mainForm.setWarehouse(warehouseService.getWarehouseById(1));
 
         setTitle("Obsługa zamówień");
+        JPanel summaryPanel = new JPanel();
+        summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.Y_AXIS));
         JPanel buttonPannel = new JPanel();
         buttonPannel.setSize(400,100);
         buttonPannel.setLayout(new GridLayout(2,1));
         buttonPannel.setBackground(Color.BLUE);
         addStoreButton(buttonPannel);
         addWarehouseServiceButton(buttonPannel);
-        add(buttonPannel);
+        summaryPanel.add(buttonPannel);
+        setContentPanel(summaryPanel);
         setVisible(true);
     }
 
