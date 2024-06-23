@@ -14,19 +14,23 @@ public class MainPanel extends CustomPanel{
     StoreService storeService;
     public MainPanel(MainForm mainForm){
         super(mainForm);
-        storeService = ServiceFactory.getStoreService();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setTitle("Obsługa zamówień");
-        setBackground(Color.BLUE);
-        addStoreButton();
-        addWarehouseServiceButton();
-        setVisible(true);
-
-        WarehouseService warehouseService = new WarehouseServiceImpl();
+        storeService = ServiceFactory.getStoreService();
+        WarehouseService warehouseService = ServiceFactory.getWarehouseService();
         mainForm.setWarehouse(warehouseService.getWarehouseById(1));
+
+        setTitle("Obsługa zamówień");
+        JPanel buttonPannel = new JPanel();
+        buttonPannel.setSize(400,100);
+        buttonPannel.setLayout(new GridLayout(2,1));
+        buttonPannel.setBackground(Color.BLUE);
+        addStoreButton(buttonPannel);
+        addWarehouseServiceButton(buttonPannel);
+        add(buttonPannel);
+        setVisible(true);
     }
 
-    public void addStoreButton(){
+    public void addStoreButton(JPanel panel){
         ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,19 +41,17 @@ public class MainPanel extends CustomPanel{
                 }
             }
         };
-        add(createButton("Sklep zamówienie", actionListener));
+        panel.add(createButtonPanel("Moduł sklepu", actionListener));
     }
 
-    public void addWarehouseServiceButton(){
+    public void addWarehouseServiceButton(JPanel panel){
         ActionListener actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainForm.changePanel(mainForm.createVerificationPanel());
-                //JOptionPane.showMessageDialog(null, "Żaden produkt nie został wybrany");
             }
         };
-
-        add(createButton("Obsługa zamówień magazyn" , actionListener));
+        panel.add(createButtonPanel("Moduł magazynu" , actionListener));
 
     }
 }

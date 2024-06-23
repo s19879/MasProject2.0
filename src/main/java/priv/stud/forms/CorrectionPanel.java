@@ -9,6 +9,7 @@ import priv.stud.database.services.OrderServiceImpl;
 import priv.stud.database.services.ServiceFactory;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,20 +22,26 @@ public class CorrectionPanel extends CustomPanel{
         setTitle("Akceptacja korekcji zamówienia");
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.verficationNote = verificationNote;
+        setStoreData();
         setOutputText();
         setButton();
     }
 
+    private void setStoreData(){
+        JPanel storePanel = createNewPanel();
+        JLabel storeLabel = new JLabel("Dane sklepu: " + mainForm.getStore().toString());
+        Font font = new Font(storeLabel.getFont().getName(), Font.BOLD, 16);
+        storeLabel.setFont(font);
+        storePanel.add(storeLabel);
+        add(storePanel);
+    }
     private void setOutputText(){
-        Store store = mainForm.getStore();
-        String outputText = "Firma: " + store;
-        for(OrderedModel model : mainForm.getOrder().getOrderedModels()){
-            if(model.isReducedValue()) outputText += "Lina " + model.getRope().getName()
-                    + " została zredukowana do ilości " + model.getAmount();
-        }
+        String outputText = verficationNote;
+
 
         JPanel panel = createNewPanel();
         JTextArea outputTextArea = new JTextArea(20, 45);
+        outputTextArea.setEditable(false);
         outputTextArea.setText(outputText);
         outputTextArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(outputTextArea);
@@ -46,8 +53,10 @@ public class CorrectionPanel extends CustomPanel{
 
     private void setButton(){
         JPanel buttonPanel = createNewPanel();
-        JButton acceptationButton = new JButton("Zostało zaakceptowane");
-        JButton noAcceptButton = new JButton("Nie zostało zaakceptowane");
+        JButton acceptationButton = new JButton("Akceptacja sklepu");
+        acceptationButton.setBackground(Color.GREEN);
+        JButton noAcceptButton = new JButton("Brak akceptacji");
+        noAcceptButton.setBackground(Color.RED);
         buttonPanel.add(acceptationButton);
         buttonPanel.add(noAcceptButton);
         add(buttonPanel);

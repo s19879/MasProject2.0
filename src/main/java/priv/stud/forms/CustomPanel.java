@@ -13,11 +13,10 @@ public class CustomPanel extends JPanel {
 
     protected CustomPanel(@NonNull  MainForm mainForm){
         this.mainForm = mainForm;
+        setBackground(Color.DARK_GRAY);
+        //Font font = new Font("")
     }
-    protected CustomPanel(@NonNull MainForm mainForm, @NonNull LayoutManager layout){
-        this(mainForm);
-        setLayout(layout);
-    }
+
 
     protected void setTitle(String title){
         JPanel titlePanel = new JPanel();
@@ -25,7 +24,7 @@ public class CustomPanel extends JPanel {
         JLabel titleLabel = new JLabel(title);
         Font font = new Font(titleLabel.getFont().getName(), Font.BOLD, 20);
         titleLabel.setFont(font);
-        titleLabel.setSize(400, 300);
+        titleLabel.setSize(400, 100);
         titlePanel.add(titleLabel);
         add(titlePanel);
     }
@@ -36,12 +35,21 @@ public class CustomPanel extends JPanel {
         return panel;
     }
 
-    protected JPanel createButton(String buttonText,  ActionListener actionListener){
+    protected JPanel createButtonPanel(String buttonText,  ActionListener actionListener){
         JPanel panel = new JPanel();
         JButton button = new JButton(buttonText);
         panel.add(button);
         button.addActionListener(actionListener);
-        panel.add(button);
+        button.setVisible(true);
+        return panel;
+    }
+
+    protected JPanel createPanelWithLabel(String label, JComponent component, int axis){
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel,axis));
+        JLabel labelField = new JLabel(label);
+        panel.add(labelField);
+        panel.add(component);
         return panel;
     }
 }

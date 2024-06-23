@@ -2,19 +2,14 @@ package priv.stud.forms;
 
 import priv.stud.database.entities.orders.Order;
 import priv.stud.database.entities.orders.OrderStatus;
-import priv.stud.database.entities.orders.OrderedModel;
 import priv.stud.database.entities.ropes.Rope;
-import priv.stud.database.entities.stores.Store;
-import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;
 import priv.stud.database.services.*;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,23 +20,33 @@ public class DataInputPanel extends CustomPanel {
     RopeService ropeService;
     OrderedModelService orderedModelService;
     OrderService orderService;
-
     private Map<Rope, Integer> ropes = new HashMap<>();
     String[] ropeArray;
     private JTable orderTable;
     JComboBox<String> comboBox;
     JPanel orderListPanel;
-
+    JPanel readyButtonPanel;
+    private JTextField searchField;
+    private JTextField quantityField;
     List<Rope> ropesInStock;
 
     DataInputPanel(MainForm mainForm){
         super(mainForm);
+
         ropeService = ServiceFactory.getRopeService();
         orderedModelService = ServiceFactory.getOrderedModelService();
         orderService = ServiceFactory.getOrderService();
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Wprowadzanie danych");
+
+        setLocalRopeArray();
+        setInputFields();
+        setOrderTable();
+        setReadyButton();
+    }
+
+    private void setLocalRopeArray(){
         ropesInStock = mainForm.getWarehouse().getWarehouseRopes().stream()
                 .filter(e -> e.getAmount() > 0)
                 .map(WarehouseRope::getRope)
@@ -51,30 +56,41 @@ public class DataInputPanel extends CustomPanel {
                 .stream()
                 .map(Rope::getName)
                 .toArray(String[]::new);
-
-        setInputFields();
-        setReadyButton();
-        setOrderTable();
-
     }
-
-
 
     private void setInputFields(){
         JPanel searchFieldPanel = createNewPanel();
+        setComboBox();
+        setSearchField();
+        setQuantityField();
+        JButton addButton = setAddButton();
 
-        JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(200, 25));
+        searchFieldPanel.add(createPanelWithLabel("Wyszukaj linę:", searchField, BoxLayout.PAGE_AXIS));
+        searchFieldPanel.add(createPanelWithLabel("Wybierz linę:", comboBox,BoxLayout.PAGE_AXIS));
+        searchFieldPanel.add(createPanelWithLabel("Ilość:", quantityField,BoxLayout.PAGE_AXIS));
+        searchFieldPanel.add(addButton);
+        add(searchFieldPanel);
 
+    }
+
+    private void setComboBox(){
         comboBox = new JComboBox<>(ropeArray);
 
-        comboBox.setEditable(true);
+        comboBox.setEditable(false);
         comboBox.setSelectedItem(null);
+    }
 
-        textField.addKeyListener(new KeyAdapter() {
+    private void setSearchField(){
+        searchField = new JTextField();
+        searchField.setPreferredSize(new Dimension(200, 25));
+        setSearchFieldListener();
+    }
+
+    private void setSearchFieldListener(){
+        searchField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                String input = textField.getText().toLowerCase();
+                String input = searchField.getText().toLowerCase();
 
                 DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
                 for (String item : ropeArray) {
@@ -86,18 +102,18 @@ public class DataInputPanel extends CustomPanel {
                 comboBox.setModel(model);
             }
         });
+    }
 
-        JTextField quantityField = new JTextField();
+    private void setQuantityField(){
+        quantityField = new JTextField();
         quantityField.setPreferredSize(new Dimension(50, 25));
+    }
 
-        JPanel quantityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        quantityPanel.add(new JLabel("Ilość:"));
-        quantityPanel.add(quantityField);
-
+    private JButton setAddButton() {
         JButton addButton = new JButton("Dodaj");
         addButton.addActionListener(e -> {
             Object selectedRope = comboBox.getSelectedItem();
-            if (selectedRope != null && selectedRope instanceof String) {
+            if (selectedRope instanceof String) {
                 String ropeName = (String) selectedRope;
                 Rope rope = findRopeByName(ropeName);
 
@@ -106,16 +122,13 @@ public class DataInputPanel extends CustomPanel {
                     int quantity = Integer.parseInt(quantityField.getText());
                     ropes.put(rope, quantity);
                     refreshTable();
+                    comboBox.setSelectedItem(null);
+                    quantityField.setText(null);
+                    searchField.setText(null);
                 }
             }
         });
-
-        searchFieldPanel.add(textField);
-        searchFieldPanel.add(comboBox);
-        searchFieldPanel.add(quantityPanel);
-        searchFieldPanel.add(addButton);
-        add(searchFieldPanel);
-
+        return addButton;
     }
 
     private Rope findRopeByName(String name){
@@ -124,7 +137,6 @@ public class DataInputPanel extends CustomPanel {
                 .findFirst()
                 .orElse(null);
     }
-
 
     private void setOrderTable() {
         orderListPanel = createNewPanel();
@@ -150,13 +162,15 @@ public class DataInputPanel extends CustomPanel {
 
     private void refreshTable() {
         remove(orderListPanel);
+        remove(readyButtonPanel);
         setOrderTable();
+        setReadyButton();
         revalidate();
         repaint();
     }
 
     private void setReadyButton(){
-        JPanel readyButtonPanel = createNewPanel();
+         readyButtonPanel = createNewPanel();
         JButton readyButton = new JButton("Gotowe");
         readyButton.addActionListener(e -> {
 
@@ -171,7 +185,7 @@ public class DataInputPanel extends CustomPanel {
                         .findFirst()
                         .orElse(null);//(workshop, entry.getKey());
 
-                if(warehouseRope.getAmount() < entry.getValue()){
+                if(warehouseRope != null && warehouseRope.getAmount() < entry.getValue()){
                     verificationNote += "Lina o nazwie " + entry.getKey().getName() + " występuje w ilości "
                             + warehouseRope.getAmount() + " . W zamówieniu " + entry.getValue() + "\n";
                     entry.setValue(warehouseRope.getAmount());

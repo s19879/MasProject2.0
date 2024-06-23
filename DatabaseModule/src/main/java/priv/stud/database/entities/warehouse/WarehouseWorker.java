@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import priv.stud.database.entities.Address;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -14,9 +15,8 @@ import java.sql.Date;
 @Entity(name = "WAREHOUSE_WORKER")
 @PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class WarehouseWorker extends Worker {
-    public WarehouseWorker(@NonNull String name, @NonNull String lastName,
-                           @NonNull String pesel, @NonNull Date birthDate){
-        super(name, lastName, pesel, birthDate);
+    public WarehouseWorker(@NonNull PersonalWorkerData personalWorkerData, @NonNull Address address){
+        super(personalWorkerData, address);
     }
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -23,10 +23,19 @@ public class CompletationPanel extends CustomPanel{
         warehouseRopeService = ServiceFactory.getWarehouseRopeService();
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Kompletacja zamówienia");
+        setStoreData();
         setOrderText();
         setButtons();
     }
 
+    private void setStoreData(){
+        JPanel storePanel = createNewPanel();
+        JLabel storeLabel = new JLabel("Dane sklepu: " + mainForm.getStore().toString());
+        Font font = new Font(storeLabel.getFont().getName(), Font.BOLD, 16);
+        storeLabel.setFont(font);
+        storePanel.add(storeLabel);
+        add(storePanel);
+    }
     private void setOrderText(){
         Store store = mainForm.getStore();
         String outputText = "Firma: " +store.getName() + " " + store.getAddress() + "\n";

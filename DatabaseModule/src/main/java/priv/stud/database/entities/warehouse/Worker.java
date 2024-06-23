@@ -19,10 +19,8 @@ public abstract class Worker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
-    private String lastName;
-    private String pesel;
-    private Date birthDate;
+    @Embedded
+    private PersonalWorkerData personalWorkerData;
 
     @Embedded
     private Address address;
@@ -30,10 +28,8 @@ public abstract class Worker {
     @ManyToOne
     private Warehouse warehouse;
 
-    public Worker(@NonNull String name, @NonNull String lastName, @NonNull String pesel, @NonNull Date birthDate){
-        this.name = name;
-        this.lastName = lastName;
-        this.pesel = pesel;
-        this.birthDate = birthDate;
+    public Worker(@NonNull PersonalWorkerData personalWorkerData, @NonNull Address address){
+        this.personalWorkerData = personalWorkerData;
+        this.address = address;
     }
 }

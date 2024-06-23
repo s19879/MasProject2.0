@@ -26,6 +26,7 @@ public class VerificationPanel extends CustomPanel {
         storePanel.add(storeLabel);
 
         JComboBox storeArray = new JComboBox<>(storeService.findAllStores().toArray());
+        storeArray.setSelectedItem(null);
         storeArray.setSize(100, 20);
 
         storePanel.add(storeArray);
@@ -42,11 +43,11 @@ public class VerificationPanel extends CustomPanel {
 
     private void setButtons(){
         JPanel buttonPanel = createNewPanel();
-        JPanel positiveButtonPanel = createButton("Weryfikacja pozytywna", e -> mainForm.changePanel(mainForm.createDataInputPanel()));
+        JPanel positiveButtonPanel = createButtonPanel("Weryfikacja pozytywna", e -> mainForm.changePanel(mainForm.createDataInputPanel()));
         buttonPanel.add(positiveButtonPanel);
 
 
-        JPanel negativeButtonPanel = createButton("Weryfikacja negatywna", e -> {
+        JPanel negativeButtonPanel = createButtonPanel("Weryfikacja negatywna", e -> {
             setNegativeConfirmationPopup();
         });
         buttonPanel.add(negativeButtonPanel);
@@ -71,6 +72,7 @@ public class VerificationPanel extends CustomPanel {
 
     private void setNegativeReasonPopup(){
         JPanel negativeReasonPanel = createNewPanel();
+        negativeReasonPanel.setLayout(new BoxLayout(negativeReasonPanel, BoxLayout.Y_AXIS));
         JTextArea textAreaInput = new JTextArea(8, 15);
         negativeReasonPanel.add(new JLabel("Podaj powód negatywnej weryfikacji"));
         negativeReasonPanel.add(new JScrollPane(textAreaInput));
