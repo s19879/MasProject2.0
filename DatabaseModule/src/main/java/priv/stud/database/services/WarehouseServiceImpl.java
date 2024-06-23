@@ -52,13 +52,13 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     @Override
     public void addRopeToStock(int amount, Rope rope, Warehouse warehouse) {
-        WarehouseRopeServiceImpl wrs = new WarehouseRopeServiceImpl();
+        WarehouseRopeService wrs = ServiceFactory.getWarehouseRopeService();
         wrs.saveWarehouseRope(amount, rope, warehouse);
     }
 
     @Override
     public void updateAmountOfRopeOnStock(int amount, WarehouseRope rope) {
-        WarehouseRopeServiceImpl wrs = new WarehouseRopeServiceImpl();
+        WarehouseRopeService wrs = ServiceFactory.getWarehouseRopeService();
         rope.setAmount(amount);
         wrs.updateAmount(rope);
     }

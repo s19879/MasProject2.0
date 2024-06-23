@@ -53,13 +53,13 @@ public class Main {
                     new Address("Wrocław", "Przestrzenna", "12", "02-122"),
                     List.of(worker, worker2));
 
-            ws.addRopeToStock(20, rope, warehouse);
+           ws.addRopeToStock(20, rope, warehouse);
             ws.addRopeToStock(14, rope2, warehouse);
             ws.addRopeToStock(10, rope3, warehouse);
-
-            WarehouseRopeService wrs = ServiceFactory.getWarehouseRopeService();
-            WarehouseRope wr = wrs.getWarehouseRope(rope, warehouse);
-            ws.updateAmountOfRopeOnStock(12, wr);
+////
+//            WarehouseRopeService wrs = ServiceFactory.getWarehouseRopeService();
+//            WarehouseRope wr = wrs.getWarehouseRope(rope, warehouse);
+//            ws.updateAmountOfRopeOnStock(12, wr);
 
             //Dodawanie sklepów
             StoreService storeService = ServiceFactory.getStoreService();

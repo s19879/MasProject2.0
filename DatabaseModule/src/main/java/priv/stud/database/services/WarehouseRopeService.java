@@ -8,4 +8,8 @@ public interface WarehouseRopeService {
     WarehouseRope getWarehouseRope(Rope rope, Warehouse warehouse);
 
     void saveWarehouseRope(WarehouseRope warehouseRope);
+
+    void saveWarehouseRope(int amount, Rope rope, Warehouse warehouse);
+
+    void updateAmount(WarehouseRope rope);
 }

@@ -33,15 +33,15 @@ public class WarehouseRopeServiceImpl implements WarehouseRopeService {
         repository.save(warehouseRope);
     }
 
-    protected void saveWarehouseRope(int amount, @NonNull Rope rope, @NonNull  Warehouse warehouse){
+    public void saveWarehouseRope(int amount, @NonNull Rope rope, @NonNull  Warehouse warehouse){
         List<WarehouseRope> warehouseRopes = warehouse.getWarehouseRopes();
         WarehouseRope wr = new  WarehouseRope(amount, rope, warehouse);
 
         if(warehouseRopes == null)
             warehouseRopes = new ArrayList<>();
 
-        warehouseRopes.add(new WarehouseRope(amount, rope, warehouse));
-        warehouse.setWarehouseRopes(warehouseRopes);
+        //warehouseRopes.add(new WarehouseRope(amount, rope, warehouse));
+        //warehouse.setWarehouseRopes(warehouseRopes);
         repository.save(wr);
     }
 }
