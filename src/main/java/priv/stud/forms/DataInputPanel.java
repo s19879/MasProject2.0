@@ -37,7 +37,7 @@ public class DataInputPanel extends CustomPanel {
         ropeService = ServiceFactory.getRopeService();
         orderedModelService = ServiceFactory.getOrderedModelService();
         orderService = ServiceFactory.getOrderService();
-
+        
 
         summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.PAGE_AXIS));
         setTitle("Wprowadzanie danych");
