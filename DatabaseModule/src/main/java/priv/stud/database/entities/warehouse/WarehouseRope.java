@@ -24,7 +24,7 @@ public class WarehouseRope {
     private Rope rope;
 
     @NotNull(message = "warehouse is null")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Warehouse warehouse;
 
     protected void setId(Long id){

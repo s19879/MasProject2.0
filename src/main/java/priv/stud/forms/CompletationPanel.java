@@ -2,6 +2,7 @@ package priv.stud.forms;
 
 import priv.stud.database.entities.orders.OrderStatus;
 import priv.stud.database.entities.orders.OrderedModel;
+import priv.stud.database.entities.ropes.Rope;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.Warehouse;
 import priv.stud.database.entities.warehouse.WarehouseRope;

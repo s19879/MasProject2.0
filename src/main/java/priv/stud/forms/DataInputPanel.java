@@ -38,6 +38,7 @@ public class DataInputPanel extends CustomPanel {
         orderedModelService = ServiceFactory.getOrderedModelService();
         orderService = ServiceFactory.getOrderService();
 
+
         summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.PAGE_AXIS));
         setTitle("Wprowadzanie danych");
 
@@ -50,6 +51,7 @@ public class DataInputPanel extends CustomPanel {
     }
 
     private void setLocalRopeArray(){
+
         ropesInStock = mainForm.getWarehouse().getWarehouseRopes().stream()
                 .filter(e -> e.getAmount() > 0)
                 .map(WarehouseRope::getRope)
