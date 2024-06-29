@@ -4,34 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="kombinowanie z customPanel">
-      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WarehouseWorkerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/StoreOrdersStatusPanel.java" afterDir="false" />
+    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="końcowe zmiany">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Worker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/AbstractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WorkerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WorkerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/RopeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/RopeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/ServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CompletationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CompletationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CorrectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CorrectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CustomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CustomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/DataInputPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/DataInputPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/LoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/VerificationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/VerificationPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +157,9 @@
       <workItem from="1719480200797" duration="2474000" />
       <workItem from="1719553211758" duration="1678000" />
       <workItem from="1719598475924" duration="38000" />
-      <workItem from="1719648706014" duration="7872000" />
+      <workItem from="1719648706014" duration="8667000" />
+      <workItem from="1719657437052" duration="964000" />
+      <workItem from="1719658497163" duration="1435000" />
     </task>
     <task id="LOCAL-00001" summary="Add packets and repository">
       <option name="closed" value="true" />
@@ -256,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719148253242</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="końcowe zmiany">
+      <option name="closed" value="true" />
+      <created>1719656678413</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719656678413</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,21 +267,7 @@
     <MESSAGE value="dodanie obsługi workera" />
     <MESSAGE value="przed dodaniem loginPanel" />
     <MESSAGE value="kombinowanie z customPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="kombinowanie z customPanel" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseServiceImpl.java</url>
-          <line>53</line>
-          <properties class="priv.stud.database.services.WarehouseServiceImpl" method="addRopeToStock">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="końcowe zmiany" />
+    <option name="LAST_COMMIT_MESSAGE" value="końcowe zmiany" />
   </component>
 </project>

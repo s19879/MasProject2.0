@@ -1,8 +1,6 @@
 package priv.stud;
 
 import priv.stud.database.entities.Address;
-import priv.stud.database.entities.orders.Order;
-import priv.stud.database.entities.orders.OrderedModel;
 import priv.stud.database.entities.ropes.*;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.entities.warehouse.*;
@@ -47,10 +45,13 @@ public class Main {
                     .build();
 
             //zamiana dziedziczenie dynamiczne
-            if(workerService.getWorkerRole(worker2).equals("WarehouseWorker")) {
+            if(workerService.getWorkerRole(worker2).equals("WarehouseWorker") &&
+                    workerService.isWarehouseWorkerManager((WarehouseWorker) worker2)) {
                 worker2 = workerService.changeWarehouseWorkerToWarehouseman((WarehouseWorker) worker2, "Wózki widłowe");
             }
-            if(workerService.getWorkerRole(worker).equals("WarehouseWorker")){
+
+            if(workerService.getWorkerRole(worker).equals("WarehouseWorker") &&
+                    workerService.isWarehouseWorkerWarehouseman((WarehouseWorker) worker2)){
                 worker = workerService.changeWarehouseWorkerToManager((WarehouseWorker) worker, 3);
             }
 
