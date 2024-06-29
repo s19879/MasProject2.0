@@ -26,6 +26,8 @@ public interface WarehouseService {
      */
     Warehouse addWarehouse(String name, Address address, List<Worker> workerList);
     Warehouse getWarehouseById(int id);
+
+    void updateWarehouse(Warehouse warehouse);
     Warehouse getWarehouseByName(String name);
 
     /**

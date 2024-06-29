@@ -17,12 +17,14 @@ public class CompletationPanel extends CustomPanel{
 
     private final OrderService orderService;
     private final WarehouseRopeService warehouseRopeService;
+    private final WarehouseService warehouseService;
     private JPanel summaryPanel = new JPanel();
 
     CompletationPanel(MainForm mainForm){
         super(mainForm);
         orderService = ServiceFactory.getOrderService();
         warehouseRopeService = ServiceFactory.getWarehouseRopeService();
+        warehouseService = ServiceFactory.getWarehouseService();
         summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.PAGE_AXIS));
         setTitle("Kompletacja zamówienia");
         setStoreData();
@@ -90,6 +92,8 @@ public class CompletationPanel extends CustomPanel{
                         WarehouseRope warehouseRope = warehouseRopeService.getWarehouseRope(model.getRope(), warehouse);
                         warehouseRope.setAmount(warehouseRope.getAmount() - model.getAmount());
                         warehouseRopeService.saveWarehouseRope(warehouseRope);
+                        warehouseService.updateWarehouse(warehouse);
+
                 }
                 mainForm.changePanel(mainForm.createMainPanel());
                 mainForm.setStore(null);

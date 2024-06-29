@@ -46,6 +46,11 @@ public class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
+    public void updateWarehouse(Warehouse warehouse) {
+        repository.save(warehouse);
+    }
+
+    @Override
     public Warehouse getWarehouseByName(String name) {
         return repository.findByFieldName("name", name);
     }
