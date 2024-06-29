@@ -4,20 +4,25 @@ import priv.stud.database.entities.stores.Store;
 import priv.stud.database.services.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VerificationPanel extends CustomPanel {
 
     private StoreService storeService;
+    private JPanel summaryPanel = new JPanel();
+    JComboBox storeArray;
     public VerificationPanel(MainForm mainForm){
         super(mainForm);
         storeService = ServiceFactory.getStoreService();
 
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.PAGE_AXIS));
+        //setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setTitle("Weryfikacja zamówienia");
         setStoreList();
         setButtons();
+        setContentPanel(summaryPanel);
     }
 
     private void setStoreList() {
@@ -25,12 +30,12 @@ public class VerificationPanel extends CustomPanel {
         JLabel storeLabel = new JLabel("Wybierz sklep: ");
         storePanel.add(storeLabel);
 
-        JComboBox storeArray = new JComboBox<>(storeService.findAllStores().toArray());
+        storeArray = new JComboBox<>(storeService.findAllStores().toArray());
         storeArray.setSelectedItem(null);
         storeArray.setSize(100, 20);
 
         storePanel.add(storeArray);
-        add(storePanel);
+        summaryPanel.add(storePanel);
 
         storeArray.addActionListener(new ActionListener() {
             @Override
@@ -43,15 +48,24 @@ public class VerificationPanel extends CustomPanel {
 
     private void setButtons(){
         JPanel buttonPanel = createNewPanel();
-        JPanel positiveButtonPanel = createButtonPanel("Weryfikacja pozytywna", e -> mainForm.changePanel(mainForm.createDataInputPanel()));
+        JPanel positiveButtonPanel = createButtonPanel("Weryfikacja pozytywna", e -> {
+            if(storeArray.getSelectedItem() != null)
+                mainForm.changePanel(mainForm.createDataInputPanel());
+            else JOptionPane.showMessageDialog(null, "Brak wybranego sklepu", "Błąd", JOptionPane.ERROR_MESSAGE);
+        });
+        positiveButtonPanel.setBackground(Color.GREEN);
         buttonPanel.add(positiveButtonPanel);
 
 
+
         JPanel negativeButtonPanel = createButtonPanel("Weryfikacja negatywna", e -> {
-            setNegativeConfirmationPopup();
+            if(storeArray.getSelectedItem() != null)
+                setNegativeConfirmationPopup();
+            else JOptionPane.showMessageDialog(null, "Brak wybranego sklepu", "Błąd", JOptionPane.ERROR_MESSAGE);
         });
+        negativeButtonPanel.setBackground(Color.RED);
         buttonPanel.add(negativeButtonPanel);
-        add(buttonPanel);
+        summaryPanel.add(buttonPanel);
     }
 
     private void setNegativeConfirmationPopup(){

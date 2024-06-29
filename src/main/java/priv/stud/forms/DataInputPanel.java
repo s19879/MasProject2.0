@@ -29,6 +29,7 @@ public class DataInputPanel extends CustomPanel {
     private JTextField searchField;
     private JTextField quantityField;
     List<Rope> ropesInStock;
+    private JPanel summaryPanel = new JPanel();
 
     DataInputPanel(MainForm mainForm){
         super(mainForm);
@@ -37,13 +38,15 @@ public class DataInputPanel extends CustomPanel {
         orderedModelService = ServiceFactory.getOrderedModelService();
         orderService = ServiceFactory.getOrderService();
 
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.PAGE_AXIS));
         setTitle("Wprowadzanie danych");
 
         setLocalRopeArray();
         setInputFields();
         setOrderTable();
         setReadyButton();
+
+        setContentPanel(summaryPanel);
     }
 
     private void setLocalRopeArray(){
@@ -60,16 +63,17 @@ public class DataInputPanel extends CustomPanel {
 
     private void setInputFields(){
         JPanel searchFieldPanel = createNewPanel();
+        searchFieldPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
         setComboBox();
         setSearchField();
         setQuantityField();
         JButton addButton = setAddButton();
 
-        searchFieldPanel.add(createPanelWithLabel("Wyszukaj linę:", searchField, BoxLayout.PAGE_AXIS));
-        searchFieldPanel.add(createPanelWithLabel("Wybierz linę:", comboBox,BoxLayout.PAGE_AXIS));
-        searchFieldPanel.add(createPanelWithLabel("Ilość:", quantityField,BoxLayout.PAGE_AXIS));
+        searchFieldPanel.add(createPanelWithLabel("Wyszukaj linę:", searchField, BoxLayout.X_AXIS));
+        searchFieldPanel.add(createPanelWithLabel("Wybierz linę:", comboBox,BoxLayout.X_AXIS));
+        searchFieldPanel.add(createPanelWithLabel("Ilość:", quantityField,BoxLayout.X_AXIS));
         searchFieldPanel.add(addButton);
-        add(searchFieldPanel);
+        summaryPanel.add(searchFieldPanel);
 
     }
 
@@ -113,12 +117,12 @@ public class DataInputPanel extends CustomPanel {
         JButton addButton = new JButton("Dodaj");
         addButton.addActionListener(e -> {
             Object selectedRope = comboBox.getSelectedItem();
-            if (selectedRope instanceof String) {
+            if (selectedRope instanceof String && !quantityField.getText().isEmpty()) {
                 String ropeName = (String) selectedRope;
                 Rope rope = findRopeByName(ropeName);
 
 
-                if (rope != null ) {
+                if (rope != null) {
                     int quantity = Integer.parseInt(quantityField.getText());
                     ropes.put(rope, quantity);
                     refreshTable();
@@ -126,7 +130,10 @@ public class DataInputPanel extends CustomPanel {
                     quantityField.setText(null);
                     searchField.setText(null);
                 }
-            }
+            } else JOptionPane.showMessageDialog(null,
+                    "Nie można dodać liny. Należy wybrać linę i podać ilość",
+                    "Błąd",
+                    JOptionPane.ERROR_MESSAGE);
         });
         return addButton;
     }
@@ -155,57 +162,61 @@ public class DataInputPanel extends CustomPanel {
 
         DefaultTableModel model = new DefaultTableModel(rowData, columnNames);
         orderTable = new JTable(model);
+        orderTable.setFont(new Font(comboBox.getFont().getFontName(), Font.BOLD, 13));
+
         JScrollPane scrollPane = new JScrollPane(orderTable);
         orderListPanel.add(scrollPane, BorderLayout.CENTER);
-        add(orderListPanel);
+        summaryPanel.add(orderListPanel);
     }
 
     private void refreshTable() {
-        remove(orderListPanel);
-        remove(readyButtonPanel);
+        summaryPanel.remove(orderListPanel);
+        summaryPanel.remove(readyButtonPanel);
+        summaryPanel.revalidate();
         setOrderTable();
         setReadyButton();
-        revalidate();
-        repaint();
+        summaryPanel.revalidate();
+        summaryPanel.repaint();
     }
 
     private void setReadyButton(){
          readyButtonPanel = createNewPanel();
         JButton readyButton = new JButton("Gotowe");
         readyButton.addActionListener(e -> {
+            if(!ropes.isEmpty()) {
+                String verificationNote = "";
+                boolean isReduced = false;
 
-            String verificationNote = "";
-            boolean isReduced = false;
+                Order order = orderService.addOrder(mainForm.getWarehouse(), mainForm.getStore());
 
-            Order order = orderService.addOrder(mainForm.getWarehouse(), mainForm.getStore());
+                for (Map.Entry<Rope, Integer> entry : ropes.entrySet()) {
+                    WarehouseRope warehouseRope = mainForm.getWarehouse().getWarehouseRopes().stream()
+                            .filter(ropeInWorkshop -> ropeInWorkshop.getRope().equals(entry.getKey()))
+                            .findFirst()
+                            .orElse(null);//(workshop, entry.getKey());
 
-            for(Map.Entry<Rope, Integer> entry : ropes.entrySet()){
-                WarehouseRope warehouseRope = mainForm.getWarehouse().getWarehouseRopes().stream()
-                        .filter(ropeInWorkshop -> ropeInWorkshop.getRope().equals(entry.getKey()) )
-                        .findFirst()
-                        .orElse(null);//(workshop, entry.getKey());
-
-                if(warehouseRope != null && warehouseRope.getAmount() < entry.getValue()){
-                    verificationNote += "Lina o nazwie " + entry.getKey().getName() + " występuje w ilości "
-                            + warehouseRope.getAmount() + " . W zamówieniu " + entry.getValue() + "\n";
-                    entry.setValue(warehouseRope.getAmount());
-                    isReduced = true;
+                    if (warehouseRope != null && warehouseRope.getAmount() < entry.getValue()) {
+                        verificationNote += "Lina o nazwie " + entry.getKey().getName() + " występuje w ilości "
+                                + warehouseRope.getAmount() + " . W zamówieniu " + entry.getValue() + "\n";
+                        entry.setValue(warehouseRope.getAmount());
+                        isReduced = true;
+                    }
+                    orderedModelService.addOrderedModel(entry.getKey(), order, entry.getValue(), isReduced);
                 }
-                orderedModelService.addOrderedModel(entry.getKey(), order, entry.getValue(), isReduced);
-            }
-            mainForm.setOrder(order);
+                mainForm.setOrder(order);
 
-            if(isReduced){
-                orderService.changeStatus(order, OrderStatus.PENDING_APPROVAL);
-                mainForm.changePanel(mainForm.createCorrectionPanel(verificationNote));
-            } else {
-                orderService.changeStatus(order, OrderStatus.OPEN);
-                mainForm.changePanel(mainForm.createComplementationPanel());
-            }
+                if (isReduced) {
+                    orderService.changeStatus(order, OrderStatus.PENDING_APPROVAL);
+                    mainForm.changePanel(mainForm.createCorrectionPanel(verificationNote));
+                } else {
+                    orderService.changeStatus(order, OrderStatus.OPEN);
+                    mainForm.changePanel(mainForm.createComplementationPanel());
+                }
 
+            } else JOptionPane.showMessageDialog(null, "Brak wybranych lin", "Błąd", JOptionPane.ERROR_MESSAGE);
         });
 
         readyButtonPanel.add(readyButton);
-        add(readyButtonPanel);
+        summaryPanel.add(readyButtonPanel);
     }
 }

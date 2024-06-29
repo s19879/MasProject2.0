@@ -16,16 +16,18 @@ public class CompletationPanel extends CustomPanel{
 
     private final OrderService orderService;
     private final WarehouseRopeService warehouseRopeService;
+    private JPanel summaryPanel = new JPanel();
 
     CompletationPanel(MainForm mainForm){
         super(mainForm);
         orderService = ServiceFactory.getOrderService();
         warehouseRopeService = ServiceFactory.getWarehouseRopeService();
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.PAGE_AXIS));
         setTitle("Kompletacja zamówienia");
         setStoreData();
         setOrderText();
         setButtons();
+        setContentPanel(summaryPanel);
     }
 
     private void setStoreData(){
@@ -34,23 +36,24 @@ public class CompletationPanel extends CustomPanel{
         Font font = new Font(storeLabel.getFont().getName(), Font.BOLD, 16);
         storeLabel.setFont(font);
         storePanel.add(storeLabel);
-        add(storePanel);
+        summaryPanel.add(storePanel);
     }
     private void setOrderText(){
         Store store = mainForm.getStore();
-        String outputText = "Firma: " +store.getName() + " " + store.getAddress() + "\n";
+        String outputText = "";
         for(OrderedModel model : mainForm.getOrder().getOrderedModels()){
-            outputText += model.toString();
+            outputText += model.toString() + "\n";
         }
 
         JPanel panel = createNewPanel();
         JTextArea outputTextArea = new JTextArea(20, 45);
+        outputTextArea.setFont(new Font(outputTextArea.getFont().getName(), Font.BOLD, 12));
         outputTextArea.setText(outputText);
         outputTextArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(outputTextArea);
 
         panel.add(scrollPane);
-        add(panel);
+        summaryPanel.add(panel);
     }
 
     private void setButtons(){
@@ -65,15 +68,15 @@ public class CompletationPanel extends CustomPanel{
         } else if(orderStatus.equals(OrderStatus.IN_PROGRESS)){
             panel.add(doneButton);
         }
-        add(panel);
+        summaryPanel.add(panel);
         completationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 orderService.changeStatus(mainForm.getOrder(),OrderStatus.IN_PROGRESS);
                 panel.remove(completationButton);
                 panel.add(doneButton);
-                revalidate();
-                repaint();
+                summaryPanel.revalidate();
+                summaryPanel.repaint();
             }
         });
 

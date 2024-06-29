@@ -32,4 +32,9 @@ public abstract class Worker {
         this.personalWorkerData = personalWorkerData;
         this.address = address;
     }
+
+    @Override
+    public String toString(){
+        return personalWorkerData.getName() + " " + personalWorkerData.getLastName();
+    }
 }

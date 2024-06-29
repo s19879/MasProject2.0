@@ -4,15 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="przed dodaniem loginPanel">
-      <change afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/LoginPanel.java" afterDir="false" />
+    <list default="true" id="d4bc56d8-127c-4675-885a-3312c5f7d9bf" name="Changes" comment="kombinowanie z customPanel">
+      <change afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WarehouseWorkerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/StoreOrdersStatusPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/entities/warehouse/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/AbstractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WorkerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/repositories/WorkerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/OrderedModelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/RopeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/RopeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/ServiceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/StoreServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseRopeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WorkerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CompletationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CompletationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CorrectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CorrectionPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CustomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/CustomPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/DataInputPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/DataInputPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/LoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/LoginPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/priv/stud/forms/VerificationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/priv/stud/forms/VerificationPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +85,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/mnt/239D74E5073544BA/Proj1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -150,7 +170,19 @@
       <workItem from="1719069489888" duration="17071000" />
       <workItem from="1719090597157" duration="16601000" />
       <workItem from="1719132311847" duration="1278000" />
-      <workItem from="1719133603008" duration="10678000" />
+      <workItem from="1719133603008" duration="19661000" />
+      <workItem from="1719161078361" duration="27000" />
+      <workItem from="1719161240105" duration="4232000" />
+      <workItem from="1719165483499" duration="5745000" />
+      <workItem from="1719171713440" duration="634000" />
+      <workItem from="1719172360076" duration="7625000" />
+      <workItem from="1719226141622" duration="1490000" />
+      <workItem from="1719342333292" duration="987000" />
+      <workItem from="1719439999121" duration="306000" />
+      <workItem from="1719480200797" duration="2474000" />
+      <workItem from="1719553211758" duration="1678000" />
+      <workItem from="1719598475924" duration="38000" />
+      <workItem from="1719648706014" duration="7872000" />
     </task>
     <task id="LOCAL-00001" summary="Add packets and repository">
       <option name="closed" value="true" />
@@ -208,7 +240,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719135731301</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="kombinowanie z customPanel">
+      <option name="closed" value="true" />
+      <created>1719148248217</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1719148248217</updated>
+    </task>
+    <task id="LOCAL-00009" summary="kombinowanie z customPanel">
+      <option name="closed" value="true" />
+      <created>1719148253242</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719148253242</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,20 +281,12 @@
     <MESSAGE value="swing drobne zmiany przed podzieleniem na metody" />
     <MESSAGE value="dodanie obsługi workera" />
     <MESSAGE value="przed dodaniem loginPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="przed dodaniem loginPanel" />
+    <MESSAGE value="kombinowanie z customPanel" />
+    <option name="LAST_COMMIT_MESSAGE" value="kombinowanie z customPanel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/priv/stud/forms/MainForm.java</url>
-          <line>46</line>
-          <properties class="priv.stud.forms.MainForm" method="createMainPanel">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/DatabaseModule/src/main/java/priv/stud/database/services/WarehouseServiceImpl.java</url>
           <line>53</line>

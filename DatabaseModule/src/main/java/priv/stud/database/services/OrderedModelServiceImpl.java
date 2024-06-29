@@ -9,11 +9,9 @@ import priv.stud.database.repositories.OrderedModelRepository;
 
 public class OrderedModelServiceImpl implements OrderedModelService{
 
-    private final OrderedModelRepository repository;
     private final OrderRepository orderRepository;
 
     public OrderedModelServiceImpl(){
-            repository = new OrderedModelRepository();
             orderRepository = new OrderRepository();
     }
 
@@ -23,7 +21,6 @@ public class OrderedModelServiceImpl implements OrderedModelService{
         order.getOrderedModels().add(orderedModel);
         orderRepository.save(order);
         return orderedModel;
-        //return repository.save(new OrderedModel(rope, order, amount, isReducedValue));
     }
 
     @Override

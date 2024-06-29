@@ -12,6 +12,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * MainForm jest głównym kontenerem ekranów aplikacji. Służy do nawigacji między nimi oraz przetrzymuje
+ * główne referencje do obiektów wymaganych na poszczególnych panelach. *
+ *
+ * @@author Przemysław Mizgała
+ */
 public class MainForm extends JFrame {
     protected JPanel currentPanel;
 
@@ -60,6 +66,13 @@ public class MainForm extends JFrame {
 
     public LoginPanel createLoginPanel(){ return new LoginPanel(this); }
 
+    public CustomPanel createStoreOrdersStatusPanel() {return new StoreOrdersStatusPanel(this);}
+
+    /**
+     * Służy do nawigowania między ekranami
+     *
+     * @param newPanel - panel do którego chcemy zostać przeniesieni
+     */
     public void changePanel(CustomPanel newPanel) {
         currentPanel = newPanel;
         setContentPane(currentPanel);

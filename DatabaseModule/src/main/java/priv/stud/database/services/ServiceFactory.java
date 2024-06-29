@@ -3,6 +3,10 @@ package priv.stud.database.services;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * ServiceFactory jest klasą pomocniczą, która pozwala odwoływać się do serwisów, bez konieczności bezpośredniej
+ * inicjazji implementacji (ServiceFactory.get[...]Service())
+ */
 @NoArgsConstructor
 public class ServiceFactory {
     @Getter

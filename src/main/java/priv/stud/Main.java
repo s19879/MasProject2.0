@@ -25,7 +25,6 @@ public class Main {
             Rope rope = rs.createNewCommonRope("Dragon", 1, 0.1, RopeType.DYNAMIC, bri, CommonRopeKind.SINGLE.name());
             Rope rope2 = rs.createNewTwinRope("IceMaster", 1, 0.1, RopeType.DYNAMIC, bri, false);
             Rope rope3 = rs.createNewCommonRope("Kamikaze", 1, 0.1, RopeType.DYNAMIC, bri, CommonRopeKind.SINGLE.name());
-            Rope rope4 = rs.createNewCommonRope("Dragon", 1, 0.1, RopeType.DYNAMIC, bri, CommonRopeKind.SINGLE.name());
 
             //Pracownicy
             WorkerService workerService = ServiceFactory.getWorkerService();
@@ -47,19 +46,24 @@ public class Main {
                     .withManager(5)
                     .build();
 
+            //zamiana dziedziczenie dynamiczne
+            if(workerService.getWorkerRole(worker2).equals("WarehouseWorker")) {
+                worker2 = workerService.changeWarehouseWorkerToWarehouseman((WarehouseWorker) worker2, "Wózki widłowe");
+            }
+            if(workerService.getWorkerRole(worker).equals("WarehouseWorker")){
+                worker = workerService.changeWarehouseWorkerToManager((WarehouseWorker) worker, 3);
+            }
+
+
             //Dodawanie i uzupełnianie magazynu
             WarehouseService ws = ServiceFactory.getWarehouseService();
-            Warehouse warehouse = ws.addWarehouse("Pierwszy",
+            Warehouse warehouse = ws.addWarehouse("Magazyn pierwszy",
                     new Address("Wrocław", "Przestrzenna", "12", "02-122"),
                     List.of(worker, worker2));
 
            ws.addRopeToStock(20, rope, warehouse);
             ws.addRopeToStock(14, rope2, warehouse);
             ws.addRopeToStock(10, rope3, warehouse);
-////
-//            WarehouseRopeService wrs = ServiceFactory.getWarehouseRopeService();
-//            WarehouseRope wr = wrs.getWarehouseRope(rope, warehouse);
-//            ws.updateAmountOfRopeOnStock(12, wr);
 
             //Dodawanie sklepów
             StoreService storeService = ServiceFactory.getStoreService();
@@ -73,8 +77,6 @@ public class Main {
 
             Store store3 = storeService.addCompanyStore("Sklep 3", "store3@linex.pl", "Warszawa", "Obozowa", "76", "02-425", "Adam Mickiewicz", 10);
 
-            OrderedModelService oMS = ServiceFactory.getOrderedModelService();
-
         }
 
 
@@ -85,6 +87,5 @@ public class Main {
             }
         });
 
-        //oMS.addOrderedModel()
     }
 }

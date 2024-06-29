@@ -7,6 +7,7 @@ import priv.stud.database.entities.stores.ExternalStore;
 import priv.stud.database.entities.stores.Store;
 import priv.stud.database.repositories.StoreRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -20,14 +21,6 @@ public class StoreServiceImpl implements StoreService {
         storeRepository = new StoreRepository();
 
     }
-
-//    @Override
-//    public Store addStore(@NonNull String name, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode){
-//        Store store = new Store(name, city, street, houseNumber, zipCode);
-//        storeRepository.save(store);
-//        return store;
-//    }
-
     @Override
     public Store addCompanyStore(@NonNull String name, @NonNull String mail, @NonNull String city, @NonNull String street, @NonNull String houseNumber, @NonNull String zipCode, @NonNull String nameOfManager, int employeesNumber) {
         Store store = new Store(name, mail, city, street, houseNumber, zipCode);
@@ -95,6 +88,14 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Store findStoreById(Long id) {
         return storeRepository.findById(id);
+    }
+
+    @Override
+    public List<String> getStoreTypes(Store store) {
+        List<String> roleTypes = new ArrayList<>();
+        if(store.getCompanyStore() != null) roleTypes.add("CompanyStore");
+        if(store.getExternalStore() != null) roleTypes.add("ExternalStore");
+        return roleTypes;
     }
 
     public List<Store> getAllStores(){
