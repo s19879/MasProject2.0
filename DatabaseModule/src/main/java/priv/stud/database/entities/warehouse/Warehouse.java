@@ -1,6 +1,8 @@
 package priv.stud.database.entities.warehouse;
 
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import priv.stud.database.entities.Address;
 import priv.stud.database.entities.orders.Order;
 
@@ -28,13 +30,13 @@ public class Warehouse {
     private Address address;
 
     @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<WarehouseRope> warehouseRopes = new ArrayList<>();
+    private Set<WarehouseRope> warehouseRopes = new HashSet<>();
 
     @OneToMany(mappedBy = "warehouse", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
-    @OneToMany(mappedBy = "warehouse" , cascade = CascadeType.ALL)
-    private List<Worker> workers = new ArrayList<>();
+    @OneToMany(mappedBy = "warehouse" , cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Worker> workers = new HashSet<>();
 
     @Override public String toString(){
         return name + " ," + address;

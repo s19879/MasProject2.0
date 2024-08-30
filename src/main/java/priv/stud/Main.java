@@ -11,9 +11,24 @@ import javax.swing.*;
 import java.io.File;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+
+        createDatabase();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MainForm();
+            }
+        });
+
+
+    }
+
+    private static void createDatabase(){
         File database = new File("./testdb");
         if(!database.exists()){
             //        //Create entities
@@ -44,6 +59,25 @@ public class Main {
                     .withManager(5)
                     .build();
 
+            Worker worker3 = workerService
+                    .builder(
+                            new PersonalWorkerData("Jansdaf2", "Kowalski", "61092995393", Date.valueOf("1961-09-29")),
+                            new Address("Wrocław", "Kamienna", "22", "51-212")
+                    )
+                    .asWarehouseWorker()
+                    .withWarehouseman("Magazynier")
+                    .build();
+
+            Worker worker4 = workerService
+                    .builder(
+                            new PersonalWorkerData("Adam2", "Zasada", "76040976511", Date.valueOf("1976-04-09")),
+                            new Address("Wrocław", "Kamienna", "22", "51-212")
+                    )
+                    .asWarehouseWorker()
+                    .withManager(5)
+                    .build();
+
+
             //zamiana dziedziczenie dynamiczne
             if(workerService.getWorkerRole(worker2).equals("WarehouseWorker") &&
                     workerService.isWarehouseWorkerManager((WarehouseWorker) worker2)) {
@@ -60,9 +94,13 @@ public class Main {
             WarehouseService ws = ServiceFactory.getWarehouseService();
             Warehouse warehouse = ws.addWarehouse("Magazyn pierwszy",
                     new Address("Wrocław", "Przestrzenna", "12", "02-122"),
-                    List.of(worker, worker2));
+                    Set.of(worker, worker2));
 
-           ws.addRopeToStock(20, rope, warehouse);
+            Warehouse warehouse2 = ws.addWarehouse("Magazyn drugi",
+                    new Address("Wrocław", "Przestrzenna", "12", "02-122"),
+                    Set.of(worker3, worker4));
+
+            ws.addRopeToStock(20, rope, warehouse);
             ws.addRopeToStock(14, rope2, warehouse);
             ws.addRopeToStock(10, rope3, warehouse);
 
@@ -79,14 +117,5 @@ public class Main {
             Store store3 = storeService.addCompanyStore("Sklep 3", "store3@linex.pl", "Warszawa", "Obozowa", "76", "02-425", "Adam Mickiewicz", 10);
 
         }
-
-
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainForm();
-            }
-        });
-
     }
 }

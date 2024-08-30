@@ -90,20 +90,16 @@ public class CompletationPanel extends CustomPanel{
                 Warehouse warehouse = mainForm.getWarehouse();
                 for(OrderedModel model : mainForm.getOrder().getOrderedModels()){
                         WarehouseRope warehouseRope = warehouseRopeService.getWarehouseRope(model.getRope(), warehouse);
-                        warehouseRope.setAmount(warehouseRope.getAmount() - model.getAmount());
+                        int updatedAmount = warehouseRope.getAmount() - model.getAmount();
+                        warehouseRope.setAmount(updatedAmount);
                         warehouseRopeService.saveWarehouseRope(warehouseRope);
-                        warehouseService.updateWarehouse(warehouse);
-
+                        mainForm.setWarehouse(
+                                warehouseService.getWarehouseById(warehouse.getId())
+                        );
                 }
                 mainForm.changePanel(mainForm.createMainPanel());
                 mainForm.setStore(null);
                 mainForm.setOrder(null);
-//                for(OrderedModel model : order.getOrderedModels()){
-//                    WorkshopLine workshopLine = WorkshopLine.getRopeInWorkshop(order.getWorkshop(), model.getRope());
-//                    workshopLine.setAmount(workshopLine.getAmount() - model.getAmount());
-//                }
-//                orderMainForm.setStore(null);
-//                orderMainForm.changePanel(orderMainForm.createMaPanel());
             }
         });
 

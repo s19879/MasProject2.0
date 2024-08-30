@@ -115,6 +115,26 @@ public abstract class AbstractRepository <T, ID> implements ICrudRepository<T, I
             transaction.commit();
             return saveObject;
         } catch (Exception e) {
+            System.out.println("Nie udało się zapisać " + e.getMessage());
+            if (transaction != null)
+                transaction.rollback();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public T refresh(T object){
+        Session session = DatabaseSession.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.refresh(object);
+            transaction.commit();
+            return object;
+        } catch (Exception e) {
+            System.out.println("Nie udało się zapisać " + e.getMessage());
             if (transaction != null)
                 transaction.rollback();
             return null;

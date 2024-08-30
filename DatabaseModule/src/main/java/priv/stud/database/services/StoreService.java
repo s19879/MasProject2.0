@@ -60,10 +60,6 @@ public interface StoreService {
      * @return boolean z informacją czy dodanie się udało
      */
     boolean addCompanyStoreToStore(Store store, @NonNull String nameOfManager, int employeesNumber);
-    void sendDailyEaringsAmount(Store store);
-    boolean addOrderQualif(Store store, Order order);
-    Order findOrderQualif(Store store, int id);
-
     /**
      * Pobiera wszystkie sklepy
      *
@@ -71,8 +67,10 @@ public interface StoreService {
      */
     List<Store> findAllStores();
 
+
+    void sendDailyEaringsAmount(Store store);
+    boolean addOrderQualif(Store store, Order order);
+    Order findOrderQualif(Store store, int id);
     Store findStoreById(Long id);
-
     List<String> getStoreTypes(Store store);
-
 }

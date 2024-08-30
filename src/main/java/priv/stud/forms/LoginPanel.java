@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Set;
 
 public class LoginPanel extends CustomPanel{
 
@@ -61,7 +62,7 @@ public class LoginPanel extends CustomPanel{
             public void actionPerformed(ActionEvent e) {
                 Warehouse selectedWarehouse = (Warehouse) workshopCombo.getSelectedItem();
                 if (selectedWarehouse != null) {
-                    List<Worker> workers = workerService.getWorkerByWarehouseId(selectedWarehouse.getId());
+                    Set<Worker> workers = selectedWarehouse.getWorkers();
                     DefaultComboBoxModel<Worker> model = new DefaultComboBoxModel<>();
                     model.addAll(workers);
                     workerCombo.setModel(model);

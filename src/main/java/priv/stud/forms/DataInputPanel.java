@@ -26,7 +26,7 @@ public class DataInputPanel extends CustomPanel {
     JComboBox<String> comboBox;
     JPanel orderListPanel;
     JPanel readyButtonPanel;
-    private JTextField searchField;
+ //   private JTextField searchField;
     private JTextField quantityField;
     List<Rope> ropesInStock;
     private JPanel summaryPanel = new JPanel();
@@ -67,11 +67,11 @@ public class DataInputPanel extends CustomPanel {
         JPanel searchFieldPanel = createNewPanel();
         searchFieldPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
         setComboBox();
-        setSearchField();
+        //setSearchField();
         setQuantityField();
         JButton addButton = setAddButton();
 
-        searchFieldPanel.add(createPanelWithLabel("Wyszukaj linę:", searchField, BoxLayout.X_AXIS));
+       // searchFieldPanel.add(createPanelWithLabel("Wyszukaj linę:", searchField, BoxLayout.X_AXIS));
         searchFieldPanel.add(createPanelWithLabel("Wybierz linę:", comboBox,BoxLayout.X_AXIS));
         searchFieldPanel.add(createPanelWithLabel("Ilość:", quantityField,BoxLayout.X_AXIS));
         searchFieldPanel.add(addButton);
@@ -81,34 +81,36 @@ public class DataInputPanel extends CustomPanel {
 
     private void setComboBox(){
         comboBox = new JComboBox<>(ropeArray);
-
+        comboBox.setPreferredSize(new Dimension(300, comboBox.getPreferredSize().height));
         comboBox.setEditable(false);
         comboBox.setSelectedItem(null);
     }
 
-    private void setSearchField(){
-        searchField = new JTextField();
-        searchField.setPreferredSize(new Dimension(200, 25));
-        setSearchFieldListener();
-    }
+//    private void setSearchField(){
+//        searchField = new JTextField();
+//        searchField.setPreferredSize(new Dimension(200, 25));
+//        setSearchFieldListener();
+//    }
 
-    private void setSearchFieldListener(){
-        searchField.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                String input = searchField.getText().toLowerCase();
-
-                DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-                for (String item : ropeArray) {
-                    if (item.toLowerCase().startsWith(input)) {
-                        model.addElement(item);
-                    }
-                }
-
-                comboBox.setModel(model);
-            }
-        });
-    }
+//    private void setSearchFieldListener(){
+//        searchField.addKeyListener(new KeyAdapter() {
+//            @Override
+//            public void keyReleased(KeyEvent e) {
+//                String input = searchField.getText().toLowerCase();
+//
+//                DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+//
+//                for (String item : ropeArray) {
+//                    if (item.toLowerCase().startsWith(input)) {
+//                        model.addElement(item);
+//                    }
+//                }
+//
+//
+//                comboBox.setModel(model);
+//            }
+//        });
+//    }
 
     private void setQuantityField(){
         quantityField = new JTextField();
@@ -130,7 +132,7 @@ public class DataInputPanel extends CustomPanel {
                     refreshTable();
                     comboBox.setSelectedItem(null);
                     quantityField.setText(null);
-                    searchField.setText(null);
+//                    searchField.setText(null);
                 }
             } else JOptionPane.showMessageDialog(null,
                     "Nie można dodać liny. Należy wybrać linę i podać ilość",

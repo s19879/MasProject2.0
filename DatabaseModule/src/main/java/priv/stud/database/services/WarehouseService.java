@@ -9,6 +9,7 @@ import priv.stud.database.entities.warehouse.WarehouseRope;
 import priv.stud.database.entities.warehouse.Worker;
 
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -24,10 +25,19 @@ public interface WarehouseService {
      * @param workerList - lista pracowników
      * @return zwracany obiekt magazynu
      */
-    Warehouse addWarehouse(String name, Address address, List<Worker> workerList);
-    Warehouse getWarehouseById(int id);
+    Warehouse addWarehouse(String name, Address address, Set<Worker> workerList);
+
+    /**
+     * Pobranie magazynu po id
+     *
+     * @param id
+     * @return
+     */
+    Warehouse getWarehouseById(long id);
 
     void updateWarehouse(Warehouse warehouse);
+
+    Warehouse refreshWarehouse(Warehouse warehouse);
     Warehouse getWarehouseByName(String name);
 
     /**
@@ -37,10 +47,6 @@ public interface WarehouseService {
      * @param warehouse - magazyn
      */
     void addRopeToStock(int amount, Rope rope, Warehouse warehouse);
-    void updateAmountOfRopeOnStock(int amount, WarehouseRope rope);
-    boolean checkAvailabilityOfRope(Rope rope, Warehouse warehouse);
-    List<Order> getAllOrdersInMonth(Warehouse warehouse);
-
     /**
      * Dodawanie zamówienia
      *
@@ -56,4 +62,9 @@ public interface WarehouseService {
      * @return lista magazynów
      */
     public List<Warehouse> findAllWarehouses();
+
+
+    void updateAmountOfRopeOnStock(int amount, WarehouseRope rope);
+    boolean checkAvailabilityOfRope(Rope rope, Warehouse warehouse);
+    List<Order> getAllOrdersInMonth(Warehouse warehouse);
 }

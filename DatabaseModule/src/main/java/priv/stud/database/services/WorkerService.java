@@ -93,7 +93,7 @@ public interface WorkerService {
 
         /**
          * Wskazuje na chęć zbudowania pracownika magazynu.
-         * Wymaga użycia metod withManager() lub withWarehouseman() w celu uściślenia pracownika magazynu.
+         * Wymaga użycia metod withManager() lub withWarehouseman() w celu uściślenia roli pracownika magazynu.
          * @see #withManager(int)
          * @see #withWarehouseman(String)
          */

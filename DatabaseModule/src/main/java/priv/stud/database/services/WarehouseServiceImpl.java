@@ -12,6 +12,7 @@ import priv.stud.database.repositories.WarehouseRepository;
 import priv.stud.database.repositories.WorkerRepository;
 
 import java.util.List;
+import java.util.Set;
 
 public class WarehouseServiceImpl implements WarehouseService {
     private final WarehouseRepository repository;
@@ -25,7 +26,7 @@ public class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
-    public Warehouse addWarehouse(@NonNull String name, @NonNull Address warehouseAddress, @NonNull List<Worker> workerList){
+    public Warehouse addWarehouse(@NonNull String name, @NonNull Address warehouseAddress, @NonNull Set<Worker> workerList){
         if(!workerList.isEmpty()){
             Warehouse warehouse = new Warehouse(name,warehouseAddress);
             warehouse.setWorkers(workerList);
@@ -41,8 +42,8 @@ public class WarehouseServiceImpl implements WarehouseService {
     }
 
     @Override
-    public Warehouse getWarehouseById(int id) {
-        return repository.findById((long) id);
+    public Warehouse getWarehouseById(long id) {
+        return repository.findById(id);
     }
 
     @Override
@@ -50,6 +51,9 @@ public class WarehouseServiceImpl implements WarehouseService {
         repository.save(warehouse);
     }
 
+    public Warehouse refreshWarehouse(Warehouse warehouse){
+        return repository.refresh(warehouse);
+    }
     @Override
     public Warehouse getWarehouseByName(String name) {
         return repository.findByFieldName("name", name);
@@ -81,9 +85,7 @@ public class WarehouseServiceImpl implements WarehouseService {
     @Override
     public Order addOrder(Warehouse warehouse, Store store) {
         Order order = orderService.addOrder(warehouse, store);
-        //List<Order> orders = warehouse.getOrders();
         repository.save(warehouse);
-        //storeService.addOrderQualif(store, order);
         return order;
     }
 
