@@ -1,9 +1,6 @@
 package priv.stud.database.entities.stores;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 import priv.stud.database.entities.Address;
 import priv.stud.database.entities.orders.Order;
 
@@ -12,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Setter
 @Getter
 @Entity(name = "STORE")

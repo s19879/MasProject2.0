@@ -3,7 +3,7 @@ package priv.stud.database.entities.ropes;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Setter
 @Getter
 public class BasicRopeInfo {
